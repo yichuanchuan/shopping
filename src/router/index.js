@@ -1,15 +1,19 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import lzy from './lzy/lzy'
+import ych from './ych/ych'
+import yxk from './yxk/yxk'
+import zm from './zm/zm'
+import hj from './hj/hj'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    }
+    ...lzy,
+    ...ych,
+    ...yxk,
+    ...zm,
+    ...hj
   ]
 })
