@@ -1,23 +1,23 @@
 <template>
-  <div id="app" class="clear">
-    <!--广告区域-->
-    <div id="myBanner">
-      <a href="www.baidu.com">
-        <img src="~@/assets/images/dbbanner.jpg" alt="" class="img111">
-      </a>
-      <div class="bannerClose" @click="closeBanner">X</div>
+    <div id="app" class="clear">
+      <!--广告区域-->
+      <div id="myBanner">
+        <a href="www.baidu.com">
+          <img src="~@/assets/images/dbbanner.jpg" alt="" class="img111">
+        </a>
+        <div class="bannerClose" @click="closeBanner">X</div>
+      </div>
+      <!--顶部导航-->
+      <pageHeader></pageHeader>
+      <!--顶部搜索区域-->
+      <header_search></header_search>
+      <!--路由展示界面-->
+      <router-view/>
+      <!--页面固定图标区域-->
+      <gdRouter class="bottomBanner"></gdRouter>
+      <!--底部导航-->
+      <pageFooter></pageFooter>
     </div>
-    <!--顶部导航-->
-    <pageHeader></pageHeader>
-    <!--顶部搜索区域-->
-    <header_search></header_search>
-    <!--路由展示界面-->
-    <router-view/>
-    <!--页面固定图标区域-->
-    <gdRouter class="bottomBanner"></gdRouter>
-    <!--底部导航-->
-    <pageFooter></pageFooter>
-  </div>
 </template>
 
 <script>
