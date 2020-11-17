@@ -1,7 +1,7 @@
 <template>
     <div id="app" class="clear">
       <!--广告区域-->
-      <div id="myBanner">
+      <div id="myBanner" ref="myBanner">
         <a href="www.baidu.com">
           <img src="~@/assets/images/dbbanner.jpg" alt="" class="img111">
         </a>
@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     closeBanner() {
-      document.getElementById("myBanner").style.display = 'none';
+      this.$refs.myBanner.style.display = 'none';
     }
   }
 }

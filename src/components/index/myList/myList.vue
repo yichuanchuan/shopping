@@ -2,7 +2,7 @@
   <div id="myList" class="myList">
     <ul class="clear">
       <li v-for="(item, index) in list" :key="index">
-        <router-link to="/">
+        <router-link to="/detail">
           <img :src="item.img" alt />
           <h2>{{item.name}}</h2>
           <h3>{{item.content}}</h3>

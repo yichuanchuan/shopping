@@ -9,6 +9,7 @@
         <el-input type="password" placeholder="请输入密码" v-model="form.password"/>
       </el-form-item>
       <el-form-item>
+        <el-button type="primary" v-on:click="closeLogin">关闭</el-button>
         <el-button type="primary" v-on:click="onSubmit('loginForm')">登录</el-button>
       </el-form-item>
     </el-form>
@@ -57,10 +58,12 @@
         .then(res => {
           console.log(res.data)
         })
+      },
+      closeLogin() {
 
       },
       handleClose() {
-        console.log(111)
+
       }
 
     }

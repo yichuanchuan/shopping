@@ -10,7 +10,9 @@
         </div>
         <div class="allBtn">
           <button class="detailBtn-cart">加入购物车</button>
-          <button class="detailBtn-confirm">确认购买</button>
+          <router-link to="/Order">
+            <button class="detailBtn-confirm">确认购买</button>
+          </router-link>
         </div>
       </div>
       <el-row type="flex" class="row-bg">
@@ -32,7 +34,9 @@
         </div>
         <div class="house-box">
           <div class="el-icon-shopping-cart-2"></div>
-          <span class="cart-2">购物车</span>
+          <router-link to="/shopping">
+            <span class="cart-2">购物车</span>
+          </router-link>
         </div>
       </el-row>
     </div>

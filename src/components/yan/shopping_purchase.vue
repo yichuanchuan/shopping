@@ -10,7 +10,9 @@
 <!--      <a href="#">删除</a>-->
 <!--    </div>-->
     <div class="jieshuan">
-      <a href="#">立即结算</a>
+      <router-link to="/Order">
+        <a href="#">立即结算</a>
+      </router-link>
     </div>
     <div class="zhongjia">
       <p>总价:{{totalPrice}}</p>
