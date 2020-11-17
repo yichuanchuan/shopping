@@ -98,6 +98,7 @@
 <script>
     import header_cart from "./header_cart";
     import register from "../user_ych/register/register";
+    import {mapActions,mapGetters} from 'vuex';
     export default {
         name: "pageHeader",
         data() {
@@ -124,6 +125,7 @@
           }
         },
         methods: {
+          ...mapActions(['consumerId']),
           changelogin() {
             this.loginBox = true;
           },
@@ -143,7 +145,8 @@
                   console.log("登录成功")
                   this.loginBox = false;
                   this.showName = true;
-                  this.userInfo.name = res.data.consumerName
+                  this.userInfo.name = res.data.consumerName;
+                  this.consumerId(res.data.consumerId);
                 }else {
                   alert("请输入正确账号或密码")
                 }
@@ -169,7 +172,10 @@
         },
         components: {
           header_cart,register
-        }
+        },
+      computed: {
+
+      }
     }
 </script>
 

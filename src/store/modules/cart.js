@@ -102,13 +102,20 @@ const actions={
   //小计subtotal
   subtotal(ctx) {
     ctx.commit("sub");
-  }
+  },
+  // 添加购物车
+  addShopping(ctx,product) {
+    ctx.commit('addShopping',product)
+}
 
 };
 
 const mutations={
+  addShopping(state,product) {
+    // let record =
+  },
   //添加：购物车数据中添加一条数据  ----修改state.购物车的数据  push
-  add(state,product){
+  // add(state,product){
     // console.log(product);
     // console.log("action提交到mutation---add方法---");
 
@@ -130,17 +137,17 @@ const mutations={
     * */
     //selfitem表示added数组里面的对象
     //product表示传过来的对象，就是点击的哪一项
-    let record=state.added.find(selfitem=>selfitem.id==product.id);//判断当前购物车中是否有点击的产品id
-
-    console.log("----------------------------");//[{},{},{}]
-    console.log(record);//{}
-
-    if(record){
-      //表示added数组中当前对象的num属性++
-      record.num++;
-    }else{
-      state.added.push({...product,num:1});
-    }
+    // let record=state.added.find(selfitem=>selfitem.id==product.id);//判断当前购物车中是否有点击的产品id
+    //
+    // console.log("----------------------------");//[{},{},{}]
+    // console.log(record);//{}
+    //
+    // if(record){
+    //   //表示added数组中当前对象的num属性++
+    //   record.num++;
+    // }else{
+    //   state.added.push({...product,num:1});
+    // }
 
 
     // let record=state.added.find(function (selfitem) {
@@ -148,7 +155,7 @@ const mutations={
     // })
 
 
-  },
+  // },
   //删除指定商品：state.购物车数据.splice()
 
   //清空购物车：sate.购物车数据=[]

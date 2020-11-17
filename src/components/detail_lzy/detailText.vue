@@ -1,7 +1,7 @@
 <template>
     <div class="detailText">
       <p class="details-text">
-        {{ shop_list.cinformation_dsc }}
+        {{ shopList.cinformation_dsc }}
       </p>
       <div class="share-box">
         <div class="el-icon-share"></div>
@@ -15,14 +15,13 @@
         name: "detailText",
       data() {
           return{
-            shop_list:[]
+            post:this.post
           }
       },
-      created() {
-        this.$axios.post("http://192.168.4.189:8765/cinformation/findById?id=1")
-          .then(response=>{
-            this.shop_list = response.data.data[0];
-          })
+      props: {
+        shopList :{
+          type: Object
+          }
       }
     }
 </script>

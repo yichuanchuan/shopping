@@ -4,14 +4,14 @@
         <span class="Price">价格：</span>
         <span class="num-ico">￥</span>
         <span class="num">
-          {{ shop_list.cspecifications_commodityprice }}
+          {{ shopList.cspecifications_commodityprice }}
         </span>
       </div>
       <div class="detailPrice1">
       <span class="Price">促销价格：</span>
       <span class="num-ico">￥</span>
       <span class="num">
-        {{ shop_list.cspecifications_promotionprice }}
+        {{ shopList.cspecifications_promotionprice }}
       </span>
     </div>
       <div class="detailPrice1">
@@ -31,18 +31,13 @@
           return {
             // commodityPrice:[],
             // promotionPrice:[]
-            shop_list: []
+
           }
       },
-      created() {
-        this.$axios.post("http://192.168.4.189:8765/cinformation/findById?id=1")
-          .then( response=> {
-            console.log(response.data.data[0])
-            this.shop_list = response.data.data[0];
-            // this.promotionPrice = response.data.data[0].cspecifications_promotionprice;
-
-
-          })
+      props: {
+        shopList: {
+          type: Object
+        }
       }
     }
 </script>

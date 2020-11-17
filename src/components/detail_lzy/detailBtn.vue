@@ -4,12 +4,12 @@
         <div class="count">
           <span class="num-text">选择数量：</span>
           <el-input-number
-            v-model="num" controls-position="right" :min="1" :max="10"
+            v-model="num" controls-position="right" :min="1" :max="10" @change="handleChange"
             style="width: 80px; height: 40px; border-radius: 0px;"
           ></el-input-number>
         </div>
         <div class="allBtn">
-          <button class="detailBtn-cart">加入购物车</button>
+          <button :plain="true" @click="open2" class="detailBtn-cart">加入购物车</button>
           <router-link to="/Order">
             <button class="detailBtn-confirm">确认购买</button>
           </router-link>
@@ -33,8 +33,8 @@
           <span class="cart-2">反馈</span>
         </div>
         <div class="house-box">
+          <router-link to="/shopping" tag="span">
           <div class="el-icon-shopping-cart-2"></div>
-          <router-link to="/shopping">
             <span class="cart-2">购物车</span>
           </router-link>
         </div>
@@ -43,21 +43,42 @@
 </template>
 
 <script>
+  import {mapGetters} from 'vuex';
     export default {
         name: "detailBtn",
         data() {
           return {
-            num: 1
+            num: 1,
           }
         },
-      // methods: {
-      //   test1() {
-      //     this.$axios.post("http://192.168.4.189:8765/cinformation/findById?id=1")
-      //     .then( response=> {
-      //       console.log(response.data.data[0])
-      //     })
-      //   }
-      // }
+      methods: {
+        handleChange(value) {
+
+        },
+        open2() {
+          this.$message({
+            message: '加入购物车成功',
+            type: 'success'
+          });
+          let useName = this.getConsumerId[0].toString();
+          let shopNum = this.shopList.cbinformation_id.toString();
+          this.$axios.post('http://192.168.4.186:8769/cart/addCart',{
+            'uid':useName,
+            'pid':shopNum,
+            'num':this.num
+          }, {headers:{'Content-Type': 'application/json'}}).then(res=> {
+            console.log(res.data)
+          });
+        }
+      },
+      props: {
+        shopList: {
+          type: Object
+        }
+      },
+      computed: {
+        ...mapGetters(['getConsumerId'])
+      }
 
     }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>
-      {{ shop_list.cinformation_name }}
+      {{ shopList.cinformation_name }}
     </h1>
   </div>
 </template>
@@ -14,11 +14,10 @@
             shop_list: []
           }
       },
-      created() {
-          this.$axios.post("http://192.168.4.189:8765/cinformation/findById?id=1")
-            .then(response=> {
-            this.shop_list = response.data.data[0];
-          })
+      props: {
+        shopList: {
+          type: Object
+        }
       }
     }
 </script>

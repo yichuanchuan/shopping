@@ -32,15 +32,13 @@
         productNav,
         detailImg,
         detailContent
-      },
-      created() {
-        console.log(this.$route.query.id)
       }
     }
 </script>
 
 <style scoped>
 #box {
+  padding-bottom: 30px;
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB",
   "Microsoft YaHei","微软雅黑",Arial,sans-serif;
 }
