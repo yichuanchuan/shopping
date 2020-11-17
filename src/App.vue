@@ -27,6 +27,10 @@ import gdRouter from "./components/gdRouter/gdRouter";
 import header_search from "./components/header_ych/header_search";
 export default {
   name: 'App',
+  data() {
+    return {
+    }
+  },
   components: {
     pageHeader,pageFooter,header_search,gdRouter
   },

@@ -32,6 +32,9 @@
         productNav,
         detailImg,
         detailContent
+      },
+      created() {
+        console.log(this.$route.query.id)
       }
     }
 </script>

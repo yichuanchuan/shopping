@@ -5,7 +5,7 @@
       <div class="box1-left">
         <img src="https://upfile-drcn.platform.hicloud.com/FileServer/image/b.0420086000109338875.20190331113616.37731699676914087335772194728512.1000.A3A1482FB2A1568088CF2C051B4EDD37286A35EA9493C47EEECDCFB050C00E15.jpg">
         <div class="box1-left-r">
-          <p class="min-zm">薰衣草</p>
+          <p class="min-zm">{{username}}</p>
           <p class="jindu-zm">
             <el-progress :percentage="20" color="blue"></el-progress>
           </p>
@@ -217,12 +217,19 @@
 <script>
     export default {
         name: "grzx_zm",
-
+        data() {
+            return {
+                username: ""
+            }
+        },
         methods: {
           zhanghao() {
             //跳转到帐号中心网页
             this.$router.push("/show_zm");
           }
+        },
+        mounted() {
+            this.username = this.$route.query.name
         }
     }
 </script>

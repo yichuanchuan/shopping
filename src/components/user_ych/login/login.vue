@@ -9,20 +9,9 @@
         <el-input type="password" placeholder="请输入密码" v-model="form.password"/>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" v-on:click="closeLogin">关闭</el-button>
         <el-button type="primary" v-on:click="onSubmit('loginForm')">登录</el-button>
       </el-form-item>
     </el-form>
-
-    <el-dialog
-      title="温馨提示"
-      width="30%"
-      :before-close="handleClose">
-      <span>请输入账号和密码</span>
-      <span slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="dialogVisible = false" ref="q">确 定</el-button>
-      </span>
-    </el-dialog>
   </div>
 </template>
 
@@ -36,7 +25,6 @@
           password: '',
           dialogVisible: true
         },
-
         // 表单验证，需要在 el-form-item 元素中增加 prop 属性
         rules: {
           username: [
@@ -50,22 +38,14 @@
     },
     methods: {
       onSubmit(formName) {
-        let that = this
-        // 为表单绑定验证功能
-
-
-        this.$axios.post('http://192.168.4.186:8769/consumer/login?phone='+this.form.username+'&password='+this.form.password,)
-        .then(res => {
-          console.log(res.data)
-        })
-      },
-      closeLogin() {
-
-      },
-      handleClose() {
-
+        this.$axios.post('http://192.168.4.186:8769/consumer/login?phone=' + this.form.username + '&password=' + this.form.password,)
+          .then(res => {
+            if(res.data.code == 200) {
+              console.log("dengluchenggong")
+            }
+            console.log(res.data.consumerName) //用户名
+          })
       }
-
     }
   }
 </script>

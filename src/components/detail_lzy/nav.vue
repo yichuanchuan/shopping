@@ -6,7 +6,7 @@
 <!--            <el-menu-item index="2">商品详情</el-menu-item>-->
 <!--          </el-menu>-->
       <el-breadcrumb separator-class="el-icon-arrow-right" class="bread">
-        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item to='/'>首页</el-breadcrumb-item>
         <el-breadcrumb-item><a href="#">商品详情</a></el-breadcrumb-item>
         <el-breadcrumb-item><a href="#">零食</a></el-breadcrumb-item>
       </el-breadcrumb>

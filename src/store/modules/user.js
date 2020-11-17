@@ -1,5 +1,5 @@
 const state = {
-  loginbox: false
+  loginBox: false
 }
 
 const actions = {
@@ -7,12 +7,12 @@ const actions = {
 }
 
 const getters = {
-  getLoginBox:state=> state.loginbox
+  getLoginBox:state=> state.loginBox
 }
 
 const mutations = {
-  openLogin(ctx) {
-    ctx.loginbox = true;
+  openLogin(state) {
+    state.loginbox = true;
     console.log(state.loginbox)
   }
 }

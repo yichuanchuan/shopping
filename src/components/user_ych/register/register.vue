@@ -6,7 +6,7 @@
         <el-input type="text" placeholder="请输入手机号" v-model="form.phone"/>
       </el-form-item>
       <el-form-item label="用户名" prop="username">
-        <el-input type="text" placeholder="请输入手机号" v-model="form.username"/>
+        <el-input type="text" placeholder="请输入用户名" v-model="form.username"/>
       </el-form-item>
       <el-form-item label="密码" prop="password">
         <el-input type="password" placeholder="请输入密码" v-model="form.password"/>
@@ -15,14 +15,13 @@
         <el-input type="password" placeholder="请确认密码" v-model="form.password2"/>
       </el-form-item>
       <el-form-item label="验证码" prop="yzNumber">
-        <el-input type="password" placeholder="请确认密码" v-model="form.yzNumber"/>
+        <el-input type="text" style='width: 120px' placeholder="请输入验证码" v-model="form.yzNumber"/>
+        <el-button type="primary" v-on:click="fasong">发送验证码</el-button>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" v-on:click="fasong">发送验证码</el-button>
-        <el-button type="primary" v-on:click="onSubmit('loginForm')">注册</el-button>
+        <el-button type="primary" style='width: 200px' v-on:click="onSubmit('loginForm')">注册</el-button>
       </el-form-item>
     </el-form>
-
     <el-dialog
       title="温馨提示"
       width="30%"
