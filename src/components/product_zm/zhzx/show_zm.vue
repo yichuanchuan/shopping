@@ -6,8 +6,8 @@
 <!--        左边头像帐号-->
           <div class="show-1_zm">
           <img src="https://upfile-drcn.platform.hicloud.com/FileServer/image/b.0420086000109338875.20190331113616.37731699676914087335772194728512.1000.A3A1482FB2A1568088CF2C051B4EDD37286A35EA9493C47EEECDCFB050C00E15.jpg" alt="头像">
-          <p>哈哈</p>
-          <p>华为帐号：18583737726</p>
+          <p>{{name}}</p>
+          <p>华为帐号：{{phone}}</p>
         </div>
 
 <!--          左下列表-->
@@ -36,8 +36,19 @@
 </template>
 
 <script>
+  // import grzx_zm from "../grzx_zm";
     export default {
-        name: "show_zm"
+        name: "show_zm",
+      data(){
+          return{
+            name:"小白",
+            phone:"88888888888"
+          }
+      }
+      // components:{
+      //   grzx_zm:grzx_zm
+      //
+      // }
 
     }
 </script>
@@ -54,18 +65,18 @@
   .show-box{
     width: 960px;
     padding-top: 40px;
-    background-color: #5e5e5e;
+    /*background-color: #5e5e5e;*/
     margin: 0 auto;
   }
   .show-left_zm{
     float: left;
     width: 192px;
-    background-color: #00b3ee;
+    /*background-color: #00b3ee;*/
   }
   .show-1_zm{
     width: 100%;
     height: 104px;
-    background-color: bisque;
+    /*background-color: bisque;*/
     margin-bottom: 25.6px;
   }
   .show-1_zm img{
@@ -101,6 +112,6 @@
     width: 720px;
     height: 620px;
     margin-left: 48px;
-    background-color: yellow;
+    /*background-color: yellow;*/
   }
 </style>
