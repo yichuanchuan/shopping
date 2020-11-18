@@ -26,10 +26,10 @@
 <!--      右边显示框-->
       <div class="show-right_zm">
         <router-view></router-view>
-        1231232
-        width: 720px;
-        height: 620px;
-        margin-left: 48px;
+<!--        1231232-->
+<!--        width: 720px;-->
+<!--        height: 620px;-->
+<!--        margin-left: 48px;-->
 
       </div>
     </div>
