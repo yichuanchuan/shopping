@@ -43,17 +43,8 @@
       font-size: 15px;
       color: #323232;
       cursor: pointer;
-      &:first-child {
-        background-color: #ffc0cb;
-        color: white;
-        border-radius: 15px;
-      }
-      &:hover {
-        color: red;
-        &:first-child {
-          background-color: #ffcfd6;
-        }
-      }
+
+
     }
     &>.search_input{
       float: right;

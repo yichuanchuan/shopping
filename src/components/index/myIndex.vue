@@ -1,13 +1,13 @@
 <template>
   <div>
-<!--    <indexBanner></indexBanner>-->
-    <template>
-      <el-carousel indicator-position="outside">
-        <el-carousel-item v-for="item in imgSrc" :key="item.id">
-          <img :src="item.img" alt="">
+    <div class="block">
+      <span class="demonstration"></span>
+      <el-carousel height="500px">
+        <el-carousel-item v-for="item in imgSrc" :key="item">
+              <img :src="item.img"/>
         </el-carousel-item>
       </el-carousel>
-    </template>
+    </div>
     <myList></myList>
   </div>
 </template>
@@ -22,12 +22,10 @@
       data() {
         return {
           imgSrc: [
-            {id:1,img:require('@/assets/images/1.jpg')},
-            {id:2,img:require('@/assets/images/2.jpg')},
-            {id:3,img:require('@/assets/images/3.jpg')},
-            {id:4,img:require('@/assets/images/4.jpg')},
-            {id:5,img:require('@/assets/images/5.jpg')},
-            {id:6,img:require('@/assets/images/6.jpg')},
+            {id:1,img:"https://img.alicdn.com/tfs/TB1_1OLxQL0gK0jSZFtXXXQCXXa-1130-500.jpg_q100.jpg_.webp"},
+            {id:2,img:"https://aecpm.alicdn.com/simba/img/TB1W4nPJFXXXXbSXpXXSutbFXXX.jpg"},
+            {id:3,img:"https://img.alicdn.com/tps/i4/https://img.alicdn.com/imgextra/i2/6000000004434/O1CN01b8Woiy1icon6D05AU_!!6000000004434-0-octopus.jpg"},
+            {id:5,img:"https://img.alicdn.com/tps/TB1JVu7LVXXXXacXFXXXXXXXXXX-1130-500.jpg_q100.jpg_.webp"}
           ]
         }
       }

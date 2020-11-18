@@ -2,15 +2,16 @@
   <div class="imgBox0">
     <div class="productShowBox"  id="productShowBox" @mouseover="mouseOver" @mouseleave="mouseLeave"
          @mousemove="mouseMove">
-      <div class="imgBox" id="imgBox" >
+      <div class="imgBox" id="imgBox" :style="{backgroundImage:`url(${shopList.cinformation_detailspicture})`}">
 <!--        <img :src="src" id="imgSmall">-->
 <!--        <img src="../../assets/images/002.jpg" id="imgSmall">-->
       </div>
+
       <div class="cutBox" id="cutBox"></div>
     </div>
     <div id="imgBig">
 <!--      <img :src="src" id="imgBig">-->
-      <div class="imgShow" id="imgShow"></div>
+      <div class="imgShow" id="imgShow" :style="{backgroundImage:`url(${shopList.cinformation_detailspicture})`}"></div>
     </div>
   </div>
 </template>
@@ -19,7 +20,7 @@
       name: "detailImg",
       data() {
         return {
-          src: 'https://img.alicdn.com/imgextra/i4/880734502/O1CN01d4DCh21j7xhjfScue_!!880734502.jpg_430x430q90.jpg'
+          //src: this.shopList.cinformation_detailspicture
         }
       },
       methods: {
@@ -72,6 +73,17 @@
           // console.log(imgShow.style.backgroundPosition)
 
         }
+      },
+      props: {
+        shopList: {
+          type: Object
+        }
+      },
+      created() {
+
+      },
+      mounted() {
+
       }
     }
 </script>
@@ -85,7 +97,7 @@
   }
   /*原图*/
   .imgBox {
-    background-image: url("../../assets/images/002.jpg");
+    /*background-image: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1605680735172&di=29c3b10a0ca4c0fcebd88ae179b8b07b&imgtype=0&src=http%3A%2F%2Fec4.images-amazon.com%2Fimages%2FI%2F6195W71l8WL.jpg");*/
     background-repeat:no-repeat;
     background-position:center;
     width: 500px;
@@ -116,7 +128,7 @@
   }
   /*展示div*/
   .imgShow {
-    background-image: url("../../assets/images/002.jpg");
+    /*background-image: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1605680735172&di=29c3b10a0ca4c0fcebd88ae179b8b07b&imgtype=0&src=http%3A%2F%2Fec4.images-amazon.com%2Fimages%2FI%2F6195W71l8WL.jpg");*/
     background-repeat:no-repeat;
     background-position:0 0;
     transform: scale(2);

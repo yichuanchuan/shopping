@@ -10,12 +10,12 @@
     <el-row>
       <el-col :span="10" :offset="2">
         <div class="grid-content bg-purple">
-          <detailImg></detailImg>
+          <detailImg :shopList="shopList"></detailImg>
         </div>
       </el-col>
       <el-col :span="10">
         <div class="grid-content bg-purple">
-          <detailContent></detailContent>
+          <detailContent :shopList="shopList"></detailContent>
       </div>
       </el-col>
     </el-row>
@@ -28,10 +28,23 @@
   import detailContent from "./detailContent";
     export default {
       name: "detail",
+      data() {
+        return {
+          shopList:{}
+        }
+      },
       components: {
         productNav,
         detailImg,
         detailContent
+      },
+
+      created() {
+        this.$axios.post("http://192.168.4.189:8765/cinformation/findById?id="+this.$route.query.cinformation_id)
+        .then(response=> {
+          this.shopList = response.data.data[0];
+          console.log(response.data.data)
+        })
       }
     }
 </script>

@@ -2,6 +2,7 @@
     <div class="detailText">
       <p class="details-text">
         {{ shopList.cinformation_dsc }}
+
       </p>
       <div class="share-box">
         <div class="el-icon-share"></div>

@@ -16,7 +16,7 @@
         name: "detailContent",
       data() {
           return {
-            shopList:{}
+
           }
       },
       components: {
@@ -25,14 +25,19 @@
         detailText,
         detailBtn
       },
-      created() {
-          let that = this;
-          this.$axios.post("http://192.168.4.189:8765/cinformation/findById?id=1")
-        .then(response=> {
-          that.shopList = response.data.data[0];
-          console.log(response.data.data[0])
-        })
+      props: {
+        shopList:{
+          type:Object
+        }
       }
+      // created() {
+      //     let that = this;
+      //     this.$axios.post("http://192.168.4.189:8765/cinformation/findById?id="+this.$route.query.cinformation_id)
+      //   .then(response=> {
+      //     that.shopList = response.data.data[0];
+      //     console.log(response.data.data[0])
+      //   })
+      // }
     }
 </script>
 

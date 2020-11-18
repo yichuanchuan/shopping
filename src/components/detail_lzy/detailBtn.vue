@@ -34,7 +34,9 @@
         </div>
         <div class="house-box">
           <router-link to="/shopping" tag="span">
-          <div class="el-icon-shopping-cart-2"></div>
+            <el-badge :value='0' class="item">
+              <div class="el-icon-shopping-cart-2"></div>
+            </el-badge>
             <span class="cart-2">购物车</span>
           </router-link>
         </div>
@@ -49,19 +51,25 @@
         data() {
           return {
             num: 1,
+            num1: 0
           }
         },
       methods: {
         handleChange(value) {
 
         },
+
         open2() {
+          // 购物车计数器
+         let shopCart = document.getElementsByTagName('sup')[0];
+          this.num1 += this.num
+          shopCart.innerHTML = this.num1.toString();
+          shopCart.style.display = 'inline-block';
           this.$message({
             message: '加入购物车成功',
             type: 'success'
           });
           let useName = this.getConsumerId[0].toString();
-          console.log(useName)
           let shopNum = this.shopList.cbinformation_id.toString();
           this.$axios.post('http://192.168.4.186:8769/cart/addCart',{
             'uid':useName,
@@ -83,6 +91,12 @@
 
     }
 </script>
+<style>
+  .el-badge__content {
+    display: none;
+    background-color: #ca151d;
+  }
+</style>
 <style>
   .el-input__inner{
     border-radius: 0px;/* 这些起作用 */

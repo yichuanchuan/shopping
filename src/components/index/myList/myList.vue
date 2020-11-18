@@ -35,7 +35,6 @@
     created() {
       this.$axios.post("http://192.168.4.189:8765/cinformation/findPicture?page=1&limit=8")
       .then(res=> {
-        console.log(res.data.data.list)
         this.list = res.data.data.list
       })
     }
