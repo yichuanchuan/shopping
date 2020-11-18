@@ -61,6 +61,7 @@
             type: 'success'
           });
           let useName = this.getConsumerId[0].toString();
+          console.log(useName)
           let shopNum = this.shopList.cbinformation_id.toString();
           this.$axios.post('http://192.168.4.186:8769/cart/addCart',{
             'uid':useName,

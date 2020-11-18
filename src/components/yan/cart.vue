@@ -6,13 +6,13 @@
     >
 
       <el-table-column
-        prop="name"
+        prop="cinformation_name"
         label="名称"
         width="180"
         align="center">
       </el-table-column>
       <el-table-column
-        prop="price"
+        prop="cspecifications_commodityprice"
         label="单价"
         align="center">
       </el-table-column>
@@ -32,22 +32,10 @@
         label="操作"
         align="center">
         <template slot-scope="scope">
-<!--          <el-button @click="delProduct(scope.row)" type="text" size="small">删除</el-button>-->
-<!--          <el-popover placement="right">-->
-<!--            <p>确定删除吗？</p>-->
-<!--            <div style="text-align: right; margin: 10px 0 0">-->
-<!--              <el-button-->
-<!--                type="primary"-->
-<!--                size="mini"-->
-<!--                @click="delProduct(scope.row)"-->
-<!--              >确定</el-button>-->
-<!--            </div>-->
-<!--            <i class="el-icon-error" slot="reference" style="font-size: 18px;"></i>-->
-<!--          </el-popover>-->
           <el-popover
             placement="right"
             width="160"
-            v-model="visible">
+            >
             <p>这是一段内容确定删除吗？</p>
             <div style="text-align: right; margin: 0">
               <el-button type="primary" size="mini" @click="delProduct(scope.row)">确定</el-button>

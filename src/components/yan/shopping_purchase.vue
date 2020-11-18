@@ -3,21 +3,21 @@
 
 <template>
   <div class="purchase clear">
-<!--    <div class="label clear">-->
-<!--      <label>-->
-<!--        <input type="checkbox">全选-->
-<!--      </label>-->
-<!--      <a href="#">删除</a>-->
-<!--    </div>-->
-    <div class="jieshuan">
-      <router-link to="/Order">
-        <a href="#">立即结算</a>
-      </router-link>
-    </div>
+    <!--    <div class="label clear">-->
+    <!--      <label>-->
+    <!--        <input type="checkbox">全选-->
+    <!--      </label>-->
+    <!--      <a href="#">删除</a>-->
+    <!--    </div>-->
+    <button class="jieshuan" @click="clickBill">
+      <!--      <router-link to="/Order">-->
+      <a href="#">立即结算</a>
+      <!--      </router-link>-->
+    </button>
     <div class="zhongjia">
       <p>总价:{{totalPrice}}</p>
       <div>已选择
-      <span>{{totalNum}}</span>件商品，优惠：<span>￥300元</span></div>
+        <span>{{totalNum}}</span>件商品，优惠：<span>￥300元</span></div>
     </div>
   </div>
 </template>
@@ -36,15 +36,26 @@
       // clearAllCart(){
       //
       // }
-      ...mapActions(['clearAllCart'])
+      ...mapActions(['clearAllCart']),
+      clickBill(){
+        // alert(this.cartProducts.length);
+        if(this.cartProducts.length!=0){
+          this.$router.push("/Order");
+        }else {
+          this.$router.push("/shoppingKong");
+        }
+      }
     },
     computed:{
-      ...mapGetters(['totalNum','totalPrice'])
+      ...mapGetters(['totalNum','totalPrice','cartProducts'])
     }
   }
 </script>
 
 <style scoped>
+  a{
+    text-decoration: none;
+  }
   .clear:before,.clear:after {
     display: block;
     content: "";
@@ -76,6 +87,7 @@
   }
   .jieshuan {
     float: right;
+    border: none;
   }
   .jieshuan a {
     width: 180px;

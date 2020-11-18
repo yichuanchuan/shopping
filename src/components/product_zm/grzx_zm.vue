@@ -10,8 +10,7 @@
             <el-progress :percentage="20" color="blue"></el-progress>
           </p>
 
-          <button class="btn1_zm">会员权益</button>
-          <button class="btn2_zm" @click="zhanghao">帐号中心</button>
+          <button class="btn1_zm">会员权益</button><button class="btn2_zm" @click="zhanghao">帐号中心</button>
         </div>
       </div>
       <div class="box1-reight">
@@ -230,7 +229,7 @@
           }
         },
         mounted() {
-            this.username = this.$route.query.name;
+            this.username = this.$route.query.name
         }
     }
 </script>

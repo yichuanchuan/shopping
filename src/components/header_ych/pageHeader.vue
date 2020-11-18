@@ -32,7 +32,10 @@
               </ul>
             </div>
           </router-link>
-          <router-link to="/shopping" tag="li"><i class="el-icon-shopping-cart-2"></i> 购物车 <span>({{num}})</span>
+          <router-link to="/shopping" tag="li" >
+            <div @click="addShoppingCart">
+              <i class="el-icon-shopping-cart-2"></i> 购物车({{getNum}})
+            </div>
             <div class="mycart">
               <header_cart></header_cart>
             </div>
@@ -125,7 +128,17 @@
           }
         },
         methods: {
-          ...mapActions(['consumerId']),
+          ...mapActions(['consumerId','unshiftShoppingCart']),
+          addShoppingCart(){
+            console.log(this.getConsumerId[0]);
+
+            this.$axios.post('http://192.168.4.186:8769/cart/cartList?consumerId='+this.getConsumerId[0])
+              .then(res => {
+                console.log(res.data);
+                this.unshiftShoppingCart(res.data);
+              })
+          }
+          ,
           changelogin() {
             this.loginBox = true;
           },
@@ -173,9 +186,10 @@
         components: {
           header_cart,register
         },
-      computed: {
 
-      }
+      computed: {
+        ...mapGetters(["getNum","getConsumerId"])
+      },
     }
 </script>
 

@@ -1,27 +1,4 @@
 const state={
-  //商品数据
-
-  shop_list:[
-    {
-      id: 11,
-      name: '鱼香肉丝',
-      price: 12,
-    },
-    {
-      id: 22,
-      name: '宫保鸡丁',
-      price: 14
-    },
-    {
-      id: 34,
-      name: '土豆丝',
-      price: 10
-    }, {
-      id: 47,
-      name: '米饭',
-      price: 2
-    }
-  ],
   //购物车数据
   added:[
     //   {
@@ -30,18 +7,18 @@ const state={
     //   price: 2,
     //   num:1
     // }
-    {
-      id: 1,
-      name: '小米6',
-      price: 2586,
-      num:1
-    },
-    {
-      id: 2,
-      name: '华为P10Plus',
-      price: 4528,
-      num:1
-    },
+    // {
+    //   id: 1,
+    //   name: '小米6',
+    //   price: 2586,
+    //   num:1
+    // },
+    // {
+    //   id: 2,
+    //   name: '华为P10Plus',
+    //   price: 4528,
+    //   num:1
+    // },
   ]
 };
 
@@ -66,8 +43,8 @@ const getters={
   //获取总数和总价在shopping_puchase中用
   totalNum:(state,getters)=>{
     let totalnum=0;
-    console.log("1111111111111111");
-    console.log(getters);
+    // console.log("1111111111111111");
+    // console.log(getters);
     // forEach(): 用于调用数组的每个元素，并将元素传递给回调函数
     getters.cartProducts.forEach(item=>{//[{},{},{}]
       totalnum+=item.num;
@@ -79,10 +56,19 @@ const getters={
   totalPrice:(state,getters)=>{
     let totalprice=0;
     getters.cartProducts.forEach(item=>{
-      totalprice+=item.price*item.num
+      totalprice+=item.cspecifications_commodityprice*item.num
     });
     return totalprice;
-  }
+  },
+  getNum (state) {
+    // 购物车商品总数量
+    let totalNum = 0;
+    for (let i = 0; i < state.added.length; i++) {
+      const temp = state.added[i];
+      totalNum += temp.num;
+    }
+    return totalNum;
+  },
 
 };
 
@@ -103,61 +89,37 @@ const actions={
   subtotal(ctx) {
     ctx.commit("sub");
   },
-  // 添加购物车
-  addShopping(ctx,product) {
-    ctx.commit('addShopping',product)
-}
+  unshiftShoppingCart ({ commit }, data) {
+    commit('unshiftShoppingCart', data);
+  },
 
 };
 
 const mutations={
-  addShopping(state,product) {
-    // let record =
-  },
   //添加：购物车数据中添加一条数据  ----修改state.购物车的数据  push
-  // add(state,product){
-    // console.log(product);
-    // console.log("action提交到mutation---add方法---");
-
-    // state.added.push({...product,num:1});
-
-    //上面的方法不能对同样的商品进行数量++的操作，只会push一条数据
-
-    //如果购物车中有这条数据 就是Num++如果没有这条数据才会push
-
-    // find
-
-    /*
-    * [ 1,2,3,4,5 ] . find （ function (n) {
-    *     return n<2
-    * }）
-    *
-    * [{},{},{}] . find(n=>n<2)
-    *
-    * */
+  unshiftShoppingCart (state, data) {
+    // 添加购物车
+    // 用于在商品详情页点击添加购物车,后台添加成功后，更新vuex状态
+    state.added=data.data;
+    console.log(data.data);
+  },
+  add(state,product){
     //selfitem表示added数组里面的对象
     //product表示传过来的对象，就是点击的哪一项
-    // let record=state.added.find(selfitem=>selfitem.id==product.id);//判断当前购物车中是否有点击的产品id
-    //
-    // console.log("----------------------------");//[{},{},{}]
-    // console.log(record);//{}
-    //
-    // if(record){
-    //   //表示added数组中当前对象的num属性++
-    //   record.num++;
-    // }else{
-    //   state.added.push({...product,num:1});
-    // }
+    let record=state.added.find(selfitem=>selfitem.id==product.id);//判断当前购物车中是否有点击的产品id
 
+    console.log("----------------------------");//[{},{},{}]
+    console.log(record);//{}
 
-    // let record=state.added.find(function (selfitem) {
-    //  return selfitem.id==product.id;
-    // })
+    if(record){
+      //表示added数组中当前对象的num属性++
+      record.num++;
+    }else{
+      state.added.push({...product,num:1});
+    }
 
-
-  // },
+  },
   //删除指定商品：state.购物车数据.splice()
-
   //清空购物车：sate.购物车数据=[]
   clearAll(state){
     state.added=[];
@@ -185,4 +147,3 @@ export  default {
   actions,
   getters
 }
-
