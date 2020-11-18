@@ -2,7 +2,7 @@
   <div id="myList" class="myList">
     <ul class="clear">
       <li v-for="(item, index) in list" :key="index">
-        <router-link to="/detail">
+        <router-link :to="{path:'detail',query: {cinformation_id:item.cinformation_id}}">
           <img :src="item.cinformation_homepicture" alt />
           <h2>{{item.cinformation_name}}</h2>
           <p>
@@ -35,6 +35,7 @@
     created() {
       this.$axios.post("http://192.168.4.189:8765/cinformation/findPicture?page=1&limit=8")
       .then(res=> {
+        console.log(res.data.data.list)
         this.list = res.data.data.list
       })
     }
