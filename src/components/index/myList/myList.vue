@@ -3,15 +3,14 @@
     <ul class="clear">
       <li v-for="(item, index) in list" :key="index">
         <router-link to="/detail">
-          <img :src="item.img" alt />
-          <h2>{{item.name}}</h2>
-          <h3>{{item.content}}</h3>
+          <img :src="item.cinformation_homepicture" alt />
+          <h2>{{item.cinformation_name}}</h2>
           <p>
-            <span>{{item.price}}元</span>
+            <span>{{item.cspecifications_promotionprice}}元</span>
             <span
-              v-show="item.price"
+              v-show="item.cspecifications_commodityprice"
               class="del"
-            >{{item.price}}元</span>
+            >{{item.cspecifications_commodityprice}}元</span>
           </p>
         </router-link>
       </li>
@@ -24,20 +23,19 @@
     data() {
       return {
         list: [
-          {id:1,name:'茶叶',img:require('@/assets/images/1.jpg'),price:30,content:'太好了吧',hot:129,tag:['收藏⭐','加入购物车🛒']},
-          {id:2,name:'串串',img:require('@/assets/images/2.jpg'),price:30,content:'很好用',hot:520,tag:['收藏⭐','加入购物车🛒']},
-          {id:3,name:'澡堂',img:require('@/assets/images/3.jpg'),price:30,content:'一起来泡温泉',hot:353,tag:['收藏⭐','加入购物车🛒']},
-          {id:4,name:'咖啡',img:require('@/assets/images/4.jpg'),price:30,content:'早上一杯咖啡',hot:13,tag:['收藏⭐','加入购物车🛒']},
-          {id:5,name:'面包',img:require('@/assets/images/5.jpg'),price:30,content:'吃口面包吧',hot:5166,tag:['收藏⭐','加入购物车🛒']},
-          {id:6,name:'客厅',img:require('@/assets/images/6.jpg'),price:30,content:'装修风格好',hot:932,tag:['收藏⭐','加入购物车🛒']},
+          // {id:1,name:'茶叶',img:require('@/assets/images/1.jpg'),price:30,content:'太好了吧',hot:129,tag:['收藏⭐','加入购物车🛒']},
+          // {id:2,name:'串串',img:require('@/assets/images/2.jpg'),price:30,content:'很好用',hot:520,tag:['收藏⭐','加入购物车🛒']},
+          // {id:3,name:'澡堂',img:require('@/assets/images/3.jpg'),price:30,content:'一起来泡温泉',hot:353,tag:['收藏⭐','加入购物车🛒']},
+          // {id:4,name:'咖啡',img:require('@/assets/images/4.jpg'),price:30,content:'早上一杯咖啡',hot:13,tag:['收藏⭐','加入购物车🛒']},
+          // {id:5,name:'面包',img:require('@/assets/images/5.jpg'),price:30,content:'吃口面包吧',hot:5166,tag:['收藏⭐','加入购物车🛒']},
+          // {id:6,name:'客厅',img:require('@/assets/images/6.jpg'),price:30,content:'装修风格好',hot:932,tag:['收藏⭐','加入购物车🛒']},
         ]
       };
     },
     created() {
-      this.$axios.post("http://192.168.4.189:8765/cinformation/findPicture?page=1&limit=2")
+      this.$axios.post("http://192.168.4.189:8765/cinformation/findPicture?page=1&limit=8")
       .then(res=> {
-        console.log(res.data)
-        console.log(res.data.list)
+        this.list = res.data.data.list
       })
     }
   };
