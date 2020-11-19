@@ -10,7 +10,8 @@
             <el-progress :percentage="20" color="blue"></el-progress>
           </p>
 
-          <button class="btn1_zm">会员权益</button><button class="btn2_zm" @click="zhanghao">帐号中心</button>
+          <button class="btn1_zm">会员权益</button>
+          <button class="btn2_zm" @click="zhanghao()">帐号中心</button>
         </div>
       </div>
       <div class="box1-reight">
@@ -20,9 +21,10 @@
           <button class="box1-r-btn">去查看</button>
         </div>
         <div class="box1-r-4">
-          <p class="box1-r-p1" >10</p>
+          <router-link tag="p" to="inner3_zm" class="box1-r-p1" >{{show}}</router-link>
           <p class="box1-r-p2">优惠券</p>
-          <button class="box1-r-btn">去查看</button>
+
+          <router-link to="/inner2_zm" tag="button" class="box1-r-btn" >去看看</router-link>
         </div>
         <div class="box1-r-4">
           <p class="box1-r-p1" >0.00</p>
@@ -215,6 +217,9 @@
 </template>
 
 <script>
+  import show_zm from "./zhzx/show_zm";
+  import inner2_zm from "./zhzx/inner2_zm";
+  import {mapActions,mapGetters} from 'vuex';
     export default {
         name: "grzx_zm",
         data() {
@@ -222,15 +227,25 @@
                 username: ""
             }
         },
+      components:{
+        show_zm:show_zm,
+        inner2_zm:inner2_zm
+      },
         methods: {
-          zhanghao() {
-            //跳转到帐号中心网页
-            this.$router.push("/show_zm");
+          zhanghao(ojb) {
+            //跳转到帐号中心网页,并传递参数
+            // this.$router.push("/show_zm");
+            this.$router.push({path: "/show_zm", query: {username:this.username}});
           }
         },
         mounted() {
-            this.username = this.$route.query.name
-        }
+            this.username = this.$route.query.name;
+          // this.phone = this.$route.query.phone;
+          // console.log(this.phone);
+        },
+      computed:{
+          ...mapGetters(['show'])
+      }
     }
 </script>
 

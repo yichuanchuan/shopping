@@ -1,76 +1,115 @@
 <template>
-  <div>
-    <p class="in1_p_zm">个人信息</p>
-    <p>
-      <img src="" alt="图片">
-      <span>头像</span>
-    </p>
-    <p>
-      <span>昵称</span>
-      <input></input>
-      <i></i>
-    </p>
-    <p>
-      <span>华为号</span>
-      <input></input>
-      <i></i>
-    </p>
-    <p>
-      <span>性别</span>
-      <input></input>
-    </p>
-    <p>
-      <span>地区</span>
-      <select>
-        <option>四川</option>
-      </select>
-      <select>
-        <option>成都</option>
-      </select>
-    </p>
-    <p>
-      <span>姓名</span>
-      <input></input>
-    </p>
-    <p>
-      <span>生日</span>
-      <select>
-        <option></option>
-      </select>
-      <select>
-        <option></option>
-      </select>
-      <select>
-        <option></option>
-      </select>
-    </p>
-    <form>
-      <h1>获取数据表单</h1>
-      电话：<input text="phone"></input>
-      <button @click="fasong">提交</button>
-    </form>
-
-
-
-
+  <div class="in1_div_zm">
+    <h1>个人信息</h1>
+    <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+      <el-form-item label="帐户名" prop="username">
+        <el-input type="text" v-model="ruleForm.username" autocomplete="off"></el-input>
+      </el-form-item>
+      <el-form-item label="电话" prop="phone">
+        <el-input type="phone" v-model="ruleForm.phone" autocomplete="off"></el-input>
+      </el-form-item>
+      <el-form-item label="密码" prop="pass">
+        <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
+      </el-form-item>
+      <el-form-item label="确认密码" prop="checkPass">
+        <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
+      </el-form-item>
+<!--      <el-form-item label="年龄" prop="age">-->
+<!--        <el-input v-model.number="ruleForm.age"></el-input>-->
+<!--      </el-form-item>-->
+      <el-form-item>
+        <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
+        <el-button @click="resetForm('ruleForm')">重置</el-button>
+      </el-form-item>
+    </el-form>
   </div>
 </template>
 
 <script>
     export default {
         name: "inner1_zm",
-      methods:{
-        fasong(){
-          this.$axios.get('http://192.168.4.186:8769/sms/send?phone='.this.form.phone)
-            .then(res=>{
-              console.log(res.data)
-            })
+      data() {
+        var validUsername = (rule, value, callback) => {
+        if (value === "") {
+          callback(new Error("请输入用户名"));
+        } else callback()
+          // else if (!IsValidUsername(value)) {
+        //   callback(
+        //     new Error(
+        //       "用户名要求数字、字母、下划线的组合 数字和字母必须存在 长度为4-15个字符"
+        //     )
+        //   );
+        // }
+      };
+        var validatePass = (rule, value, callback) => {
+          if (value === '') {
+            callback(new Error('请输入密码'));
+          } else {
+            if (this.ruleForm.checkPass !== '') {
+              this.$refs.ruleForm.validateField('checkPass');
+            }
+            callback();
+          }
+        };
+        var validatePass2 = (rule, value, callback) => {
+          if (value === '') {
+            callback(new Error('请再次输入密码'));
+          } else if (value !== this.ruleForm.pass) {
+            callback(new Error('两次输入密码不一致!'));
+          } else {
+            callback();
+          }
+        };
+        return {
+          ruleForm: {
+            pass: '',
+            checkPass: '',
+            age: ''
+          },
+          rules: {
+            username:[
+              {validator:validUsername,trigger: 'blur'}
+            ],
+            pass: [
+              { validator: validatePass, trigger: 'blur' }
+            ],
+            checkPass: [
+              { validator: validatePass2, trigger: 'blur' }
+            ]
+            // age: [
+            //   { validator: checkAge, trigger: 'blur' }
+            // ]
+          }
+        };
+      },
+      methods: {
+        submitForm(formName) {
+          this.$refs[formName].validate((valid) => {
+            if (valid) {
+              alert('submit!');
+            } else {
+              console.log('error submit!!');
+              return false;
+            }
+          });
+        },
+        resetForm(formName) {
+          this.$refs[formName].resetFields();
         }
-
       }
     }
 </script>
 
 <style scoped>
+  .in1_div_zm{
+    width: 300px;
+    margin: 0 auto;
+  }
+  .in1_div_zm h1{
+    width: 100%;
+    height: 80px;
+    line-height: 60px;
+    text-align: center;
+  }
 
 </style>
