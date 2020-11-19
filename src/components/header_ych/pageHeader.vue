@@ -108,7 +108,7 @@
           return {
             num: 0,
             showName: false,
-            loginBox: false,
+            // loginBox: loginBox,
             registerBox: false,
             userInfo: {},
             form: {
@@ -132,7 +132,7 @@
           addShoppingCart(){
             console.log(this.getConsumerId[0]);
 
-            this.$axios.post('http://192.168.4.186:8769/cart/cartList?consumerId='+this.getConsumerId[0])
+            this.$axios.post('http://139.196.200.142:8769/cart/cartList?consumerId='+this.getConsumerId[0])
               .then(res => {
                 console.log(res.data);
                 this.unshiftShoppingCart(res.data);
@@ -140,10 +140,10 @@
           }
           ,
           changelogin() {
-            this.loginBox = true;
+            this.$store.dispatch('confirm')
           },
           closeLogin() {
-            this.loginBox = false;
+            this.$store.dispatch('loginBox');
           },
           changeRegister() {
             this.registerBox = true;
@@ -152,11 +152,13 @@
             this.registerBox = false;
           },
           onSubmit(formName) {
-            this.$axios.post('http://192.168.4.186:8769/consumer/login?phone=' + this.form.username + '&password=' + this.form.password,)
+            this.$axios.post('http://139.196.200.142:8769/consumer/login?phone=' + this.form.username + '&password=' + this.form.password,)
               .then(res => {
                 if(res.data.code == 200) {
                   console.log("登录成功")
-                  this.loginBox = false;
+                  // ...mapActions(['loginState'])
+                  this.$store.dispatch('loginState')
+                  this.$store.dispatch('loginBox')
                   this.showName = true;
                   this.userInfo.name = res.data.consumerName;
                   this.consumerId(res.data.consumerId);
@@ -166,13 +168,13 @@
               })
           },
           fasong() {
-            this.$axios.post('http://192.168.4.186:8769/sms/send?phone='+this.form.phone,)
+            this.$axios.post('http://139.196.200.142:8769/sms/send?phone='+this.form.phone,)
               .then(res => {
 
               })
           },
           onRegister(formName) {
-            this.$axios.post('http://192.168.4.186:8769/consumer/reg?name='+this.form.username+'&phone='+this.form.phone+'&password='+this.form.password+'&surePassword='+this.form.password2+'&captcha='+this.form.yzNumber)
+            this.$axios.post('http://139.196.200.142:8769/consumer/reg?name='+this.form.username+'&phone='+this.form.phone+'&password='+this.form.password+'&surePassword='+this.form.password2+'&captcha='+this.form.yzNumber)
               .then(res => {
                 if(res.data.code = 200) {
                   console.log("注册成功")
@@ -188,8 +190,11 @@
         },
 
       computed: {
-        ...mapGetters(["getNum","getConsumerId"])
+        ...mapGetters(["getNum","getConsumerId","loginBox"])
       },
+      created() {
+
+      }
     }
 </script>
 

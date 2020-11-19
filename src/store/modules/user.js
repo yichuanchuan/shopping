@@ -1,18 +1,34 @@
 const state = {
   loginBox: false,
-  useName:[]
+  useName:[],
+  isLogin:false
 }
 
 const actions = {
  consumerId(ctx,product) {
    ctx.commit('consumerId',product)
  },
+  loginState(ctx,product) {
+   ctx.commit('loginState')
+  },
+  confirm(ctx) {
+   ctx.commit('confirm')
+  },
+  loginBox(ctx) {
+    ctx.commit('loginBox')
+  }
 }
 
 const getters = {
   getLoginBox:state=> state.loginBox,
   getConsumerId(state) {
     return state.useName
+  },
+  loginState(state) {
+    return state.isLogin
+  },
+  loginBox(state) {
+    return state.loginBox
   }
 
 }
@@ -24,7 +40,18 @@ const mutations = {
   },
   consumerId(state,product) {
       state.useName.push(product)
+  },
+  loginState(state) {
+    state.isLogin = true;
+  },
+  confirm(state) {
+    state.loginBox = true;
+  },
+  loginBox(state){
+    state.loginBox = false;
   }
+
+
 }
 
 export default {

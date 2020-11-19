@@ -40,10 +40,10 @@
       },
 
       created() {
-        this.$axios.post("http://192.168.4.189:8765/cinformation/findById?id="+this.$route.query.cinformation_id)
+        this.$axios.post("http://139.196.200.142:80/cityshop-api-shop/cinformation/findById?id="+this.$route.query.cinformation_id)
         .then(response=> {
           this.shopList = response.data.data[0];
-          console.log(response.data.data)
+          console.log(response.data.data[0])
         })
       }
     }

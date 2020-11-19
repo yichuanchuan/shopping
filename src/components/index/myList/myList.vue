@@ -33,8 +33,16 @@
       };
     },
     created() {
-      this.$axios.post("http://192.168.4.189:8765/cinformation/findPicture?page=1&limit=8")
+      this.$axios({
+        method:'post',
+        url:'http://139.196.200.142:80/cityshop-api-shop/cinformation/findPicture',
+        params:{
+          page:0,
+          limit:5
+        }
+      })
       .then(res=> {
+        console.log(res.data)
         this.list = res.data.data.list
       })
     }

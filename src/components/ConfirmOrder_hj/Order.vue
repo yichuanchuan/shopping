@@ -128,7 +128,7 @@
     methods: {
       ...mapActions([]),
       submitOrder (){
-        this.$axios.post("http://192.168.4.186:8769/cart/deleteAllCart?uid="+this.getConsumerId[0])
+        this.$axios.post("http://139.196.200.142:8769/cart/deleteAllCart?uid=1")
         .then(res=>{
           console.log(res.data)
         })
@@ -136,6 +136,9 @@
     },
     computed: {
       ...mapGetters(['cartProducts','totalPrice',"getConsumerId"]),
+    },
+    created() {
+      console.log(this.$route.query.shopList)
     }
   }
 </script>

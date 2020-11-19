@@ -10,9 +10,9 @@
         </div>
         <div class="allBtn">
           <button :plain="true" @click="open2" class="detailBtn-cart">加入购物车</button>
-          <router-link to="/Order">
-            <button class="detailBtn-confirm">确认购买</button>
-          </router-link>
+<!--          <router-link :to="{path:'/Order',query:{cinformation_id:cinformation_id}}">-->
+            <button class="detailBtn-confirm" @click="open123">确认购买</button>
+<!--          </router-link>-->
         </div>
       </div>
       <el-row type="flex" class="row-bg">
@@ -51,10 +51,23 @@
         data() {
           return {
             num: 1,
-            num1: 0
+            num1: 0,
           }
         },
       methods: {
+        open123() {
+
+          if (this.loginState == false) {
+            this.$store.dispatch('confirm');
+          }else {
+            this.$router.push({
+              path:'/Order',
+              query: {
+                shopList:this.shopList
+              }
+            })
+          }
+        },
         handleChange(value) {
 
         },
@@ -71,13 +84,14 @@
           });
           let useName = this.getConsumerId[0].toString();
           let shopNum = this.shopList.cbinformation_id.toString();
-          this.$axios.post('http://192.168.4.186:8769/cart/addCart',{
+          this.$axios.post('http://139.196.200.142:8769/cart/addCart',{
             'uid':useName,
             'pid':shopNum,
             'num':this.num
           }, {headers:{'Content-Type': 'application/json'}}).then(res=> {
             console.log(res.data)
           });
+
         }
       },
       props: {
@@ -86,7 +100,11 @@
         }
       },
       computed: {
-        ...mapGetters(['getConsumerId'])
+        ...mapGetters(['getConsumerId']),
+        ...mapGetters(['loginState'])
+      },
+      created() {
+        console.log(this.shopList)
       }
 
     }
