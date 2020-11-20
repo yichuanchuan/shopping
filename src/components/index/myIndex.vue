@@ -3,7 +3,7 @@
     <div class="block">
       <span class="demonstration"></span>
       <el-carousel height="500px">
-        <el-carousel-item v-for="item in imgSrc" :key="item">
+        <el-carousel-item v-for="(item,index) in imgSrc" :key="index">
               <img :src="item.img"/>
         </el-carousel-item>
       </el-carousel>
