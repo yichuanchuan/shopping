@@ -12,7 +12,7 @@
         <p>活动开始时间：{{item.actStartTime}}</p>
         <p>活动结束时间：{{item.actEndTime}}</p>
 <!--        <button link-to >去使用</button>-->
-        <router-link to="/myList" tag="button"  >去使用</router-link>
+        <router-link to="/myList" tag="button" class="mybut3" >去使用</router-link>
       </li>
     </ul>
 
@@ -54,7 +54,9 @@
     list-style: none;
     padding: 10px 20px;
     border-radius: 10px;
-    background-color: #E6A23C;
+
+    /*background-color: #ffcc00;*/
+    background-color: #cc0033;
     margin: 10px;
   }
   button{
@@ -63,8 +65,16 @@
     padding: 0 5px;
     border-radius: 5px;
     background-color: #d5444b;
-    outline:none;
+    border: none;
     margin: 5px 0px 5px 100px;
+  }
+  .mybut3:focus{
+    outline:none;
+  }
+  .mybut3:hover{
+    cursor: pointer;
+    background-color:#dd0000;
+    transition: all 1.5s;
   }
   p{
     margin: 5px auto;

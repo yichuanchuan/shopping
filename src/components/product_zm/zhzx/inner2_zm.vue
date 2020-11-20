@@ -12,7 +12,7 @@
         <p>活动开始时间：{{item.actStartTime}}</p>
         <p>活动结束时间：{{item.actEndTime}}</p>
 <!--        <p>{{// item.couId}}</p>-->
-        <button @click="youhui(index)">领取</button>
+        <button @click="youhui(index)" class="mybut">领取</button>
       </li>
     </ul>
   </div>
@@ -30,11 +30,6 @@
               ],
               ylList: [],
               show:"",
-              money:"",
-              a:[],
-              b:"",
-              c:""
-
             }
         },
         created() {
@@ -69,17 +64,10 @@
             ...mapActions(['youhui']), //点击优惠券事件
             youhui(obj){
               this.ylList.push(this.myList[obj])
-              // console.log(this.ylList)
               this.show=this.ylList.length
               this.$store.commit("saveNum",this.show)
               console.log(this.ylList)
-
               this.couId=this.myList[obj].couId
-              this.a.push(this.myList[obj].couId)
-
-
-              // this.msg=this.myList[obj].couId.length
-              this.$store.commit("quan25",this.couId)
             }
         },
         computed:{
@@ -113,9 +101,17 @@
     height: 30px;
     padding: 0 5px;
     border-radius: 5px;
-    background-color: #d5444b;
-    outline:none;
+    /*background-color: #d5444b;*/
+    border: none;
     margin: 5px 0px 5px 100px;
+  }
+  .mybut:focus{
+    outline:none;
+  }
+  .mybut:hover{
+    cursor: pointer;
+    background-color:#bbbbbb;
+    transition: all 1.5s;
   }
   p{
     margin: 5px auto;
