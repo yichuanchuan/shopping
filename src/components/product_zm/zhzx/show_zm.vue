@@ -14,9 +14,9 @@
           <ul>
 <!--            <li>个人信息</li>-->
             <router-link to="/show_zm/inner1_zm"  tag="li">个人信息</router-link>
-            <router-link to="/show_zm/inner2_zm"  tag="li">帐号安全</router-link>
-            <router-link to="/show_zm/inner3_zm"  tag="li">实名认证</router-link>
-            <router-link to="/show_zm/inner4_zm"  tag="li">隐私中心</router-link>
+<!--            <router-link to="/show_zm/inner2_zm"  tag="li">帐号安全</router-link>-->
+<!--            <router-link to="/show_zm/inner3_zm"  tag="li">实名认证</router-link>-->
+<!--            <router-link to="/show_zm/inner4_zm"  tag="li">隐私中心</router-link>-->
 
           </ul>
         </div>
@@ -24,24 +24,24 @@
 
 <!--      右边显示框-->
       <div class="show-right_zm">
-        <router-view></router-view>
-<!--        1231232-->
-<!--        width: 720px;-->
-<!--        height: 620px;-->
-<!--        margin-left: 48px;-->
-
+        <inner1_zm></inner1_zm>
       </div>
     </div>
 </template>
 
 <script>
+    import Inner1_zm from "./inner1_zm";
     export default {
         name: "show_zm",
+      components: {Inner1_zm},
       data(){
           return {
             username:""
           }
 
+      },
+      comments:{
+        Inner1_zm,
       },
       //props:['username'],
       created() {

@@ -23,17 +23,16 @@
         <div class="box1-r-4">
           <router-link tag="p" to="inner3_zm" class="box1-r-p1" >{{show}}</router-link>
           <p class="box1-r-p2">优惠券</p>
-
           <router-link to="/inner2_zm" tag="button" class="box1-r-btn" >去看看</router-link>
         </div>
         <div class="box1-r-4">
-          <p class="box1-r-p1" >0.00</p>
+          <p class="box1-r-p1" >10</p>
           <p class="box1-r-p2">代金券</p>
           <button class="box1-r-btn">去查看</button>
         </div>
         <div class="box1-r-4">
-          <p class="box1-r-p1" >0</p>
-          <p class="box1-r-p2">花瓣</p>
+          <p class="box1-r-p1" >1</p>
+          <p class="box1-r-p2">vip</p>
           <button class="box1-r-btn">去查看</button>
         </div>
       </div>
@@ -339,6 +338,7 @@
     font-size: 28px;
     color: #333;
     width:100%;
+    padding-left: 20px;
     line-height: 32px;
     cursor: pointer;
   }
@@ -346,6 +346,7 @@
     font-size: 12px;
     color: #3a3a3a;
     width:100%;
+    padding-left: 15px;
     line-height: 15px;
     margin-top: 10px;
     margin-bottom: 11px;
