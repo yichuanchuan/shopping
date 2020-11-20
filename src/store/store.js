@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 
 import cart from './modules/cart'
 import user from './modules/user'
-import user_zm from './modeles/user_zm'
+import user_zm from "./modules/user_zm";
 
 
 Vue.use(Vuex);
