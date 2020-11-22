@@ -1,9 +1,9 @@
 <template>
     <div class="bottomNav">
-      <a href="#" class="bottom_a">
+      <router-link to="/shopping" tag="a" class="bottom_a">
         <i class="el-icon-shopping-cart-2 bottom_text"></i>
         <div class="bottom_title"><span>购物车</span></div>
-      </a>
+      </router-link>
       <a href="#" class="bottom_a">
         <i class="el-icon-service bottom_text"></i>
         <div class="bottom_title"><span>在线客服</span></div>

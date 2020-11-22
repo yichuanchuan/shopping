@@ -86,8 +86,8 @@
   }
   .myList ul li img {
     display: block;
-    width: 160px;
-    height: 160px;
+    width: 240px;
+    height: 200px;
     background: url(../../../assets/images/1.jpg) no-repeat 50%;
     margin: 0 auto;
   }
