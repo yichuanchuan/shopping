@@ -3,37 +3,37 @@
 <!--    上部-->
     <div class="box1 clear" >
       <div class="box1-left">
-        <img src="https://upfile-drcn.platform.hicloud.com/FileServer/image/b.0420086000109338875.20190331113616.37731699676914087335772194728512.1000.A3A1482FB2A1568088CF2C051B4EDD37286A35EA9493C47EEECDCFB050C00E15.jpg">
+        <img @click="qudiv1"
+             :src="$store.state.user_zm.tc01" alt="图片">
         <div class="box1-left-r">
-          <p class="min-zm">{{username}}</p>
+          <router-link to="inner1_zm"  tag="p"  class="min-zm">欢迎您：{{username}}！</router-link>
           <p class="jindu-zm">
             <el-progress :percentage="20" color="blue"></el-progress>
           </p>
-
-          <button class="btn1_zm">会员权益</button>
-          <button class="btn2_zm" @click="zhanghao()">帐号中心</button>
+<!--          <button class="btn1_zm">会员权益</button>-->
+          <button class="btn2_zm" @click="zhanghao()">重置帐号</button>
         </div>
       </div>
       <div class="box1-reight">
         <div class="box1-r-4">
-          <p class="box1-r-p1" >5</p>
-          <p class="box1-r-p2">积分</p>
-          <button class="box1-r-btn">去查看</button>
+          <router-link tag="p" to="inner3_zm" class="box1-r-p1" >{{this.$store.state.user_zm.count}}</router-link>
+          <!--          <p class="box1-r-p2">优惠券</p>-->
+          <router-link to="/inner2_zm" tag="button" class="box1-r-btn" >优惠券</router-link>
         </div>
         <div class="box1-r-4">
-          <router-link tag="p" to="inner3_zm" class="box1-r-p1" >{{show}}</router-link>
-          <p class="box1-r-p2">优惠券</p>
-          <router-link to="/inner2_zm" tag="button" class="box1-r-btn" >去看看</router-link>
+          <p class="box1-r-p1" >5</p>
+<!--          <p class="box1-r-p2">收藏夹</p>-->
+          <router-link to="/shopping" tag="button" class="box1-r-btn" >购物车</router-link>
         </div>
         <div class="box1-r-4">
           <p class="box1-r-p1" >10</p>
-          <p class="box1-r-p2">代金券</p>
-          <button class="box1-r-btn">去查看</button>
+<!--          <p class="box1-r-p2">关注店铺</p>-->
+          <router-link to="/myList" tag="button" class="box1-r-btn" >收藏商品</router-link>
         </div>
         <div class="box1-r-4">
           <p class="box1-r-p1" >1</p>
-          <p class="box1-r-p2">vip</p>
-          <button class="box1-r-btn">去查看</button>
+<!--          <p class="box1-r-p2">足迹</p>-->
+          <router-link to="myList" tag="button" class="box1-r-btn">收藏店铺</router-link>
         </div>
       </div>
     </div>
@@ -46,8 +46,9 @@
 <!--          <router-link to="/HelloWorld" active-class="myactive" tag="li">HelloWorld</router-link>-->
           <span class="title_zm1">我的订单</span>
           <span class="title_zm2">
-            <a href="">全部订单 ＞</a>
-<!--            <router-link to="/dindan" >dindan</router-link>-->
+
+            <router-link to="/Order" tag="a">全部订单<i class="el-icon-caret-right"></i></router-link>
+
         </span>
         </p>
         <div class="box2-dindan clear">
@@ -84,7 +85,7 @@
               <img src="https://res8.vmallres.com/20201021/images/echannel/icon/icon02.svg" class="box2-dindan-div1-5">
 <!--              <em class="em1"></em>-->
             </div>
-            <a>小程序</a>
+            <a>已完成</a>
           </span>
         </div>
         <div class="bos2-daifk_zm clear">
@@ -235,6 +236,9 @@
             //跳转到帐号中心网页,并传递参数
             // this.$router.push("/show_zm");
             this.$router.push({path: "/show_zm", query: {username:this.username}});
+          },
+          qudiv1(){
+            this.$router.push("/div1")
           }
         },
         mounted() {
@@ -285,9 +289,10 @@
     cursor: pointer;
   }
   .min-zm{
-    font-size: 19px;
+    font-size: 14px;
     color: #333;
     cursor: pointer;
+
   }
   .jindu-zm{
     margin-top: 8px;
@@ -301,7 +306,7 @@
     border-radius: 5px;
     text-align: center;
     font-size: 13px;
-    border: 1px solid #888;
+    border: none;
     cursor: pointer;
   }
   .btn1_zm:hover{
@@ -317,11 +322,12 @@
   .btn1_zm{
     color: #fde4b3;
     background: #595454;
-    background: #595454;
   }
   .btn2_zm{
-    color: #333;
-    background: #fff;
+    color: #fff;
+    background: #cf0a2c;
+    outline: none;
+    cursor: pointer;
   }
   .box1-reight{
     float: left;
@@ -335,8 +341,9 @@
     margin-top: 37.5px;
   }
   .box1-r-p1{
+    font-style: italic;
     font-size: 28px;
-    color: #333;
+    color: #0099CC;
     width:100%;
     padding-left: 20px;
     line-height: 32px;
@@ -353,12 +360,12 @@
   }
   .box1-r-btn{
     width:64px;
-    height: 20px;
+    height: 30px;
     font-size: 12px;
     border: 1px solid #e5e5e5;
     border-radius: 10px;
     color: #666;
-    margin-top: 5px;
+    margin-top: 15px;
     cursor: pointer;
     outline: none;
   }
@@ -381,16 +388,17 @@
   .title_zm1{
     width:73px;
     font-size: 16px;
+    color: #777;
   }
   .title_zm2{
     width: 73px;
     height: 16px;
-    margin: 17px 13px 0px 470px;
+    margin: 17px 13px 0px 440px;
   }
   .title_zm2 a {
     font-size: 14px;
     list-style: none;
-    color: #777;
+
     text-decoration: none;
     cursor: pointer;
   }
@@ -615,7 +623,7 @@
   }
   .fu_zm i{
     font-style:normal;
-
+    padding-left: 15px;
   }
 
   .box3-ydsh_zm{

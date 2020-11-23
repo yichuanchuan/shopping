@@ -2,6 +2,9 @@
   <div class="in1_div_zm">
     <h1>个人信息</h1>
     <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+      <el-form-item label="头像" prop="myimg">
+        <el-button type="text" @click="open">修改头像</el-button>
+      </el-form-item>
       <el-form-item label="帐户名" prop="username">
         <el-input type="text" v-model="ruleForm.username" autocomplete="off"></el-input>
       </el-form-item>
@@ -76,9 +79,6 @@
             checkPass: [
               { validator: validatePass2, trigger: 'blur' }
             ]
-            // age: [
-            //   { validator: checkAge, trigger: 'blur' }
-            // ]
           }
         };
       },
@@ -95,6 +95,10 @@
         },
         resetForm(formName) {
           this.$refs[formName].resetFields();
+        },
+        open(){
+          this.$router.push("/div1");
+
         }
       }
     }

@@ -4,20 +4,17 @@
       <div class="show-left_zm">
 <!--        左边头像帐号-->
           <div class="show-1_zm">
-            <img src="https://upfile-drcn.platform.hicloud.com/FileServer/image/b.0420086000109338875.20190331113616.37731699676914087335772194728512.1000.A3A1482FB2A1568088CF2C051B4EDD37286A35EA9493C47EEECDCFB050C00E15.jpg" alt="头像">
-            <p>{{username}}</p>
-            <p>华为帐号：18583737726</p>
+            <img @click="qudiv1"
+                 :src="$store.state.user_zm.tc01" alt="头像">
+            <h3>{{username}}</h3>
+            <p>优品帐户：18583737726</p>
         </div>
 
 <!--          左下列表-->
           <div class="show-2_zm">
           <ul>
-<!--            <li>个人信息</li>-->
-            <router-link to="/show_zm/inner1_zm"  tag="li">个人信息</router-link>
-<!--            <router-link to="/show_zm/inner2_zm"  tag="li">帐号安全</router-link>-->
-<!--            <router-link to="/show_zm/inner3_zm"  tag="li">实名认证</router-link>-->
-<!--            <router-link to="/show_zm/inner4_zm"  tag="li">隐私中心</router-link>-->
-
+            <li>个人信息</li>
+            <router-link to="div2" tag="li" >收货信息</router-link>
           </ul>
         </div>
       </div>
@@ -39,6 +36,12 @@
             username:""
           }
 
+      },
+      methods:{
+        qudiv1(){
+          this.$router.push("/div1");
+
+        }
       },
       comments:{
         Inner1_zm,
@@ -83,6 +86,11 @@
     width: 57.5px;
     height: 57.5px;
     border-radius: 50%;
+    margin-left: 70px;
+  }
+  .show-1_zm h3{
+    text-align: center;
+    margin: 15px auto;
   }
   .show-1_zm p{
     width: 100%;
@@ -90,21 +98,21 @@
     margin-top: 6.4px;
     font-size: 12.8px;
     color: #000;
-
+    text-align: center;
   }
 
   .show-2_zm ul li{
     list-style: none;
   }
   .show-2_zm li{
-    padding: 12.8px 6.4px 12.8px 25.6px;
+    padding: 25.6px 6.4px 5px 25.6px;
     border-radius: 6.4px;
     cursor: pointer;
     font-size: 12.8px;
     color: #333;
     height: 17.5px;
     line-height: 17.5px;
-    text-align:left;
+    text-align:center;
   }
 
   .show-right_zm{

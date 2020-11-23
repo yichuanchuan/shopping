@@ -1,9 +1,9 @@
 <template>
   <div class="in2_zm">
-    <h1>优惠券列表</h1>
+    <h1>可领优惠券列表</h1>
 <!--    {{// myList}}-->
-    <router-link tag="h1" :to="{path:'inner3_zm', query:{ylList:ylList}}" >已领优惠券数量{{show}}</router-link>
-<!--    <h1>优惠券金额{{money}}</h1>-->
+    <router-link tag="h1" :to="{path:'inner3_zm', query:{ylList:ylList}}" >已领优惠券数量 {{this.$store.state.user_zm.count}} 张</router-link>
+    <h1>优惠券金额{{this.$store.state.user_zm.jian}}</h1>
     <ul>
       <li v-for="(item,index) in myList" :key="index">
         <p>{{item.couName}}</p>
@@ -20,7 +20,7 @@
 
 <script>
     import inner3_zm from "./inner3_zm";
-    import {mapActions,mapGetters} from 'vuex';
+    import {mapActions} from 'vuex';
     export default {
         name: "inner2_zm",
         data(){
@@ -29,6 +29,7 @@
               myList: [
               ],
               ylList: [],
+              yllistcouJian:[],
               show:"",
             }
         },
@@ -61,18 +62,22 @@
            inner3_zm:inner3_zm
         },
         methods:{
-            ...mapActions(['youhui']), //点击优惠券事件
+            // ...mapActions(['youhui']), //点击优惠券事件
             youhui(obj){
               this.ylList.push(this.myList[obj])
               this.show=this.ylList.length
               this.$store.commit("saveNum",this.show)
               console.log(this.ylList)
-              this.couId=this.myList[obj].couId
+
+
+              this.ylList[obj].couJian
+              console.log(this.ylList[obj].couJian)
+              this.$store.commit("jiaNum",this.ylList[obj].couJian)
+              // this.couId=this.myList[obj].couId
             }
         },
         computed:{
-            ...mapGetters(['show'])//优惠券领取数量总和
-          // ...mapGetters(['money'])//优惠券领取数量总和
+
         }
 
     }
@@ -93,7 +98,7 @@
     list-style: none;
     padding: 10px 20px;
     border-radius: 10px;
-    background-color: #E6A23C;
+    background-color: #0099CC;
     margin: 10px;
   }
   button{

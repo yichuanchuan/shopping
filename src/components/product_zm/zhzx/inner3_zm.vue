@@ -1,7 +1,8 @@
 <template>
   <div class="in3_zm">
-    <h1>领到的优惠券列表</h1>
-    <h1>领券总数{{show}}</h1>
+    <h1>可使用优惠券列表</h1>
+    <h1>领券总数{{this.$store.state.user_zm.count}}</h1>
+    <h1>可抵扣金额{{this.$store.state.user_zm.jian}}</h1>
 
 
     <ul>
@@ -20,7 +21,7 @@
 </template>
 
 <script>
-    import {mapGetters} from "vuex";
+    // import {mapGetters} from "vuex";
 
     export default {
         name: "inner3_zm",
@@ -34,7 +35,7 @@
           this.ylList = this.$route.query.ylList
         },
         computed:{
-          ...mapGetters(['show'])//优惠券领取数量总和
+          // ...mapGetters(['show'])//优惠券领取数量总和
         }
     }
 </script>
