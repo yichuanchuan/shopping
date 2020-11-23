@@ -4,40 +4,39 @@
 
 const state = {
   count:0, //优惠券原始数量
-  // money:0 //优惠券金额
+  jian:0,  //优惠券金额
+  tc01:"https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png"
+
 }
 
 const getters = {//取state的值，输出值
-  show(state){
-    return state.count;
-  },
-  // quan25(state){
-  //   return state.money
-  // }
+
 }
 const actions = {//接收函数
-  youhui(ctx){
-    ctx.commit('youhui')
-  },
-  show(ctx,count) {
-    ctx.commit("show",count)
-  }
+  // youhui(ctx){
+  //   ctx.commit('youhui')
+  // }
 
 }
 
 const mutations = {//改变函数传递数据
-  youhui(state){
-    state.count+=1;
-  },
-  show(state,count) {
-    state.count = count
-  },
+  // youhui(state){
+  //   state.count+=1;
+  // },
   saveNum(state,num){
     state.count=num
   },
-  // quan25(state,money) {
-  //   state.money==25
-  // }
+  jiaNum(state,num){
+    state.jian+=num
+  },
+  gaisrc(state,src){
+    console.log(state.tc01)
+    console.log(src)
+    state.tc01=src
+    console.log(state.tc01)
+  }
+
+
 }
 
 export default {
