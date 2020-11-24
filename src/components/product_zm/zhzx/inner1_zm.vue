@@ -3,7 +3,10 @@
     <h1>个人信息</h1>
     <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
       <el-form-item label="头像" prop="myimg">
-        <el-button type="text" @click="open">修改头像</el-button>
+<!--        <img :src="$store.state.user_zm.tc01" alt="图片">-->
+        <el-button type="text" @click="open">
+          <img :src="$store.state.user_zm.tc01" alt="图片">
+          修改头像</el-button>
       </el-form-item>
       <el-form-item label="帐户名" prop="username">
         <el-input type="text" v-model="ruleForm.username" autocomplete="off"></el-input>
@@ -22,6 +25,7 @@
 <!--      </el-form-item>-->
       <el-form-item>
         <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
+
         <el-button @click="resetForm('ruleForm')">重置</el-button>
       </el-form-item>
     </el-form>
@@ -92,6 +96,7 @@
               return false;
             }
           });
+
         },
         resetForm(formName) {
           this.$refs[formName].resetFields();
@@ -100,6 +105,7 @@
           this.$router.push("/div1");
 
         }
+
       }
     }
 </script>
@@ -114,6 +120,11 @@
     height: 80px;
     line-height: 60px;
     text-align: center;
+  }
+  img{
+    width: 37.5px;
+    height: 37.5px;
+    border-radius: 50%;
   }
 
 </style>

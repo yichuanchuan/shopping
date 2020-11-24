@@ -64,7 +64,8 @@
 <!--                <img width="100%" :src="dialogImageUrl" alt="">-->
 <!--              </el-dialog>-->
 <!--              <el-button  type="primary">提交头像</el-button>-->
-              <button @click="tijianimg">提交头像</button>
+<!--              <button @click="tijianimg">提交头像</button>-->
+              <button  @click="gerenzx">去个人中心页面</button>
             </div>
         </div>
     </div>
@@ -121,6 +122,10 @@
 
           this.$store.state.user_zm.tc01=file.url
           console.log(this.$store.state.user_zm.tc01)
+
+          this.src=this.$store.state.user_zm.tc01;
+          console.log(this.src)
+          this.$store.commit("gaisrc",this.src);
           this.dialogVisible = false;
         },
         // handleDownload(file) {
@@ -128,11 +133,13 @@
         // }
         tijianimg(){
           this.$router.push("/show_zm");
-          this.src=this.$store.state.user_zm.tc01;
-          console.log(this.src)
-          this.$store.commit("gaisrc",this.src);
+
           // this.$router.push({path: "/show_zm", query: {tc01:this.$store.state.user_zm.tc01}});
-        }
+        },
+        gerenzx(){
+          this.$router.push("/grzx_zm");
+        },
+
       },
 
       computed:{
