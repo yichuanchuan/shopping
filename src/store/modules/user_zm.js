@@ -30,8 +30,9 @@ const mutations = {//改变函数传递数据
     state.jian+=num
   },
   gaisrc(state,src){
-    console.log(state.tc01)
-    console.log(src)
+    // console.log(state.tc01)
+    // console.log(11111111111111111);
+    // console.log(src)
     state.tc01=src
     console.log(state.tc01)
   }
