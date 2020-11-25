@@ -6,11 +6,11 @@
 
     <div class="content1">
       <p>收货地址</p>
-      <div v-for="(item,index) in form2" class="box" :key="index" @click="changeAddress(index)">
+      <div v-for="(item,index) in form2" class="box" :key="index" @click="changeAddress(index)" @mouseenter="enter(index)" @mouseleave="leave()">
          <span class="span1">{{item.name}}</span>
          <span class="span2">{{item.tel}}</span>
          <p class="p3">{{item.address}}</p>
-         <div class="btn">
+         <div class="btn" v-if="seen&&index==current">
            <button type="text" @click="updateAddress(index)">修改</button>
            <button type="text" @click="delAddress(index)">删除</button>
          </div>
@@ -19,17 +19,17 @@
       <div>
         <el-button type="text" @click="dialogFormVisible = true" class="addAdress">+新增收货地址</el-button>
         <el-dialog title="-添加地址-" :visible.sync="dialogFormVisible" class="title">
-          <el-form :model="form">
-            <el-form-item label="收货人：" :label-width="formLabelWidth">
+          <el-form :model="form" ref="addAddressRef" :rules="addAddressRules">
+            <el-form-item label="收货人：" prop="name" :label-width="formLabelWidth">
               <el-input v-model="form.name" autocomplete="off"></el-input>
             </el-form-item>
-            <el-form-item label="手机号码：" :label-width="formLabelWidth">
+            <el-form-item label="手机号码：" prop="tel" :label-width="formLabelWidth">
               <el-input v-model="form.tel" placeholder="请输入11位手机号码"></el-input>
             </el-form-item>
-            <el-form-item label="备选号码：" :label-width="formLabelWidth">
-              <el-input v-model="form.tel" placeholder="固定电话或其他手机号码"></el-input>
-            </el-form-item>
-            <el-form-item label="收货地址：" :label-width="formLabelWidth">
+<!--            <el-form-item label="备选号码：" :label-width="formLabelWidth">-->
+<!--              <el-input v-model="form.tel" placeholder="固定电话或其他手机号码"></el-input>-->
+<!--            </el-form-item>-->
+            <el-form-item label="收货地址：" prop="address" :label-width="formLabelWidth">
               <el-input v-model="form.address" placeholder="请输入详细的收货地址"></el-input>
             </el-form-item>
           </el-form>
@@ -50,9 +50,9 @@
             <el-form-item label="手机号码：" :label-width="formLabelWidth">
               <el-input v-model="form1.tel" placeholder="请输入11位手机号码"></el-input>
             </el-form-item>
-            <el-form-item label="备选号码：" :label-width="formLabelWidth">
-              <el-input v-model="form1.tel" placeholder="固定电话或其他手机号码"></el-input>
-            </el-form-item>
+<!--            <el-form-item label="备选号码：" :label-width="formLabelWidth">-->
+<!--              <el-input v-model="form1.tel" placeholder="固定电话或其他手机号码"></el-input>-->
+<!--            </el-form-item>-->
             <el-form-item label="收货地址：" :label-width="formLabelWidth">
               <el-input v-model="form1.address" placeholder="请输入详细的收货地址"></el-input>
             </el-form-item>
@@ -128,11 +128,29 @@
         dialogFormVisible1: false,
         //修改数据的下标变量
         myIndex:'',
+        seen:false,
+        current:0,
         //存入输入的信息，初始为空
         form: {
           name: '',
           tel:'',
           address:''
+        },
+        //添加收货地址的表单验证规则对象
+        addAddressRules:{
+           //验证收货人姓名是否合法
+          name:[
+            { required:true,message:"请填写收货人",trigger:"blur"},
+            { min: 1,max: 10,message: "长度在1-10个字符",trigger: "blur"}
+          ],
+          //验证电话号码是否合法
+          tel:[
+            { required:true,message:"请填写正确的手机号码",trigger:"blur"},
+            { min:11,max:11,message: "手机号码必须为11位",trigger: "blur"}
+          ],
+          address:[
+            {required:true,message:"收货地址不能为空", trigger:"blur"}
+          ],
         },
         form1:{
           name: '',
@@ -141,9 +159,9 @@
         },
         //点击保存按钮存入输入的地址信息
         form2: [
-          { name: 'aaaa',
-            tel:1121212,
-            address: 'adsadasdasdas'
+          { name: 'admin',
+            tel:12345678912,
+            address: '四川省成都市武侯区云华路333号国信安一号门'
           }
         ],
         form3: {
@@ -167,6 +185,20 @@
     },
     methods: {
       ...mapActions([]),
+      // //鼠标移入(出)按钮显示(隐藏)
+      enter(index){
+        this.seen = true;
+        this.current = index;
+      },
+      leave(){
+        this.seen = false;
+        this.current = null;
+      },
+
+      //删除地址
+      delAddress(obj){
+        this.form2.splice(obj,1)
+      },
       //添加地址
       saveAddress(){
         this.dialogFormVisible=false;
@@ -178,10 +210,9 @@
         this.form.name=""
         this.form.tel=""
         this.form.address=""
-      },
-      //删除地址
-      delAddress(obj){
-        this.form2.splice(obj,1)
+        //console.log(this);
+        //点击保存按钮清空表单验证规则
+        this.$refs.addAddressRef.resetFields();
       },
       //修改地址
       bcupdataAddress(){
@@ -212,6 +243,7 @@
         .then(res=>{
           console.log(res.data);
         })
+        this.$router.push("/success");
       },
     },
     computed: {
@@ -309,7 +341,7 @@
     color: dimgrey;
   }
   .box .btn {
-    margin-left: 145px;
+    margin-left: 150px;
   }
   .btn button {
     margin-left: 10px;
@@ -375,7 +407,7 @@
   }
   .Address {
     width: 300px;
-    height: 70px;
+    /*height: 70px;*/
     border: 1px solid lightgrey;
     background-color: #ffe2ea;
     font-size: 14px;
