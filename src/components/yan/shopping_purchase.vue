@@ -65,9 +65,10 @@
     clear: both;
   }
   .purchase {
+    width: 1200px;
+    margin: auto;
     background: #fff;
     height: 60px;
-    margin-top: 10px;
   }
   .label {
     float: left;

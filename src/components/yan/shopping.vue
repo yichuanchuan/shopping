@@ -45,13 +45,6 @@
     background: #f5f5f5;
     min-width: 1200px;
     min-height:400px;
-    position: relative;
+  }
 
-  }
-  .app_width {
-    position: absolute;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
 </style>
