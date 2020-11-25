@@ -32,7 +32,7 @@
           <div class="el-icon-edit"></div>
           <span class="cart-2">反馈</span>
         </div>
-        <div class="house-box">
+        <div class="house-box" @click="shopCart">
           <router-link to="/shopping" tag="span">
             <el-badge :value='0' class="item">
               <div class="el-icon-shopping-cart-2"></div>
@@ -45,7 +45,7 @@
 </template>
 
 <script>
-  import {mapGetters} from 'vuex';
+  import {mapGetters,mapActions} from 'vuex';
     export default {
         name: "detailBtn",
         data() {
@@ -55,6 +55,14 @@
           }
         },
       methods: {
+          ...mapActions(['unshiftShoppingCart']),
+        shopCart(){
+          this.$axios.post('http://139.196.200.142:8769/cart/cartList?consumerId='+this.getConsumerId[0])
+            .then(res => {
+              console.log(res.data);
+              this.unshiftShoppingCart(res.data);
+            })
+        },
         open123() {
 
           if (this.loginState == false) {
@@ -73,26 +81,31 @@
         },
 
         open2() {
-          // 购物车计数器
-         let shopCart = document.getElementsByTagName('sup')[0];
-          this.num1 += this.num
-          shopCart.innerHTML = this.num1.toString();
-          shopCart.style.display = 'inline-block';
-          this.$message({
-            message: '加入购物车成功',
-            type: 'success'
-          });
-          let useName = this.getConsumerId[0].toString();
-          let shopNum = this.shopList.cbinformation_id.toString();
-          this.$axios.post('http://139.196.200.142:8769/cart/addCart',{
-            'uid':useName,
-            'pid':shopNum,
-            'num':this.num
-          }, {headers:{'Content-Type': 'application/json'}}).then(res=> {
-            console.log(res.data)
-          });
+          if (this.loginState == false) {
+            this.$store.dispatch('confirm');
+          }else {
+            // 购物车计数器
+            let shopCart = document.getElementsByTagName('sup')[0];
+            this.num1 += this.num
+            shopCart.innerHTML = this.num1.toString();
+            shopCart.style.display = 'inline-block';
+            this.$message({
+              message: '加入购物车成功',
+              type: 'success'
+            });
+            let useName = this.getConsumerId[0].toString();
+            let shopNum = this.shopList.cbinformation_id.toString();
+            this.$axios.post('http://139.196.200.142:8769/cart/addCart',{
+              'uid':useName,
+              'pid':shopNum,
+              'num':this.num
+            }, {headers:{'Content-Type': 'application/json'}}).then(res=> {
+              console.log(res.data)
+            });
 
-        }
+          }
+          }
+
       },
       props: {
         shopList: {

@@ -1,11 +1,13 @@
 <template>
     <div class="detailPrice">
       <div class="detailPrice1">
+
         <span class="Price">价格：</span>
-        <span class="num-ico">￥</span>
-        <span class="num">
-          {{ shopList.cspecifications_commodityprice }}
-        </span>
+
+<!--        <span class="num-ico"></span>-->
+          <span class="num num1">
+            ¥&nbsp;{{ shopList.cspecifications_commodityprice }}
+          </span>
       </div>
       <div class="detailPrice1">
       <span class="Price">促销价格：</span>
@@ -61,6 +63,12 @@
     font-size: 25px;
     font-weight: 700;
     color: #ca141d;
+
+  }
+  .num1 {
+    color: #a4a4a4;
+    text-decoration: line-through;
+    font-size: 18px;
   }
   .num-ico {
     color: #ca141d;
