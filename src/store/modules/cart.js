@@ -69,11 +69,7 @@ const getters={
     let allNum1 = 0;
     for (let i = 0; i < state.added.length; i++) {
       let temp22 = state.added[i];
-      console.log(allNum1)
-      console.log(temp22)
-      console.log(temp22.num)
       allNum1 += temp22.num;
-      console.log(allNum1)
     }
     return allNum1;
   },
