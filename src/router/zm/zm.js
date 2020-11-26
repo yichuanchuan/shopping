@@ -1,12 +1,12 @@
 /* jshint esversion: 6 */
 import grzx_zm from "../../components/product_zm/grzx_zm";
-import show_zm from "../../components/product_zm/zhzx/show_zm";
-import inner1_zm from "../../components/product_zm/zhzx/inner1_zm";
-import inner2_zm from "../../components/product_zm/zhzx/inner2_zm";
-import inner3_zm from "../../components/product_zm/zhzx/inner3_zm";
+import show_zm from "../../components/product_zm/show_zm";
+import inner1_zm from "../../components/product_zm/inner1_zm";
+import inner2_zm from "../../components/product_zm/inner2_zm";
+import inner3_zm from "../../components/product_zm/inner3_zm";
 import myList from "../../components/index/myList/myList"
-import div1 from "../../components/product_zm/cheshi/div1"
-import div2 from "../../components/product_zm/cheshi/div2"
+import div1 from "../../components/product_zm/div1"
+import div2 from "../../components/product_zm/div2"
 
 
 
