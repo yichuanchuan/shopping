@@ -37,7 +37,6 @@
         name: "inner1_zm",
       data() {
         var validUsername = (rule, value, callback) => {
-          
         if (value === "") {
           callback(new Error("请输入用户名"));
         } else callback()
@@ -70,9 +69,9 @@
         };
         return {
           ruleForm: {
-            username:'',
             pass: '',
-            checkPass: ''
+            checkPass: '',
+            age: ''
           },
           rules: {
             username:[

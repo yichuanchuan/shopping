@@ -14,8 +14,8 @@
           <div class="show-2_zm">
           <ul>
             <li>个人信息</li>
-<!--            <router-link to="div2" tag="li" >收货信息</router-link>-->
-            <router-link to="grzx_zm" tag="li" class="el-icon-user-solid" >个人中心</router-link>
+            <router-link to="div2" tag="li" >收货信息</router-link>
+            <router-link to="grzx_zm" tag="li" >去上一页</router-link>
           </ul>
         </div>
       </div>

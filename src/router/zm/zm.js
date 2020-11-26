@@ -5,8 +5,8 @@ import inner1_zm from "../../components/product_zm/zhzx/inner1_zm";
 import inner2_zm from "../../components/product_zm/zhzx/inner2_zm";
 import inner3_zm from "../../components/product_zm/zhzx/inner3_zm";
 import myList from "../../components/index/myList/myList"
-import div1 from "../../components/product_zm/zhzx/div1"
-import div2 from "../../components/product_zm/zhzx/div2"
+import div1 from "../../components/product_zm/cheshi/div1"
+import div2 from "../../components/product_zm/cheshi/div2"
 
 
 

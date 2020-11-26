@@ -5,8 +5,7 @@
 const state = {
   count:0, //优惠券原始数量
   jian:0,  //优惠券金额
-  //tc01:"https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png"
-  tc01:require('../../../static/images/4-2-1.png')
+  tc01:"https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png"
 
 }
 
@@ -35,7 +34,7 @@ const mutations = {//改变函数传递数据
     // console.log(11111111111111111);
     // console.log(src)
     state.tc01=src
-    // console.log(state.tc01)
+    console.log(state.tc01)
   }
 
 
