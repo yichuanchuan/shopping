@@ -241,10 +241,8 @@
             this.$router.push("/div1")
           }
         },
-        mounted() {
+        mounted(){
             this.username = this.$route.query.name;
-          // this.phone = this.$route.query.phone;
-          // console.log(this.phone);
         },
       computed:{
           ...mapGetters(['show'])

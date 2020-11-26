@@ -7,9 +7,10 @@
 <!--        </h1>-->
         <div class="abc888">
             <h3>上传头像</h3>
+          <router-link to="grzx_zm"  tag="button"  class="el-icon-user-solid">个人中心</router-link>
 <!--          <img :src="mysrc" alt="图片">-->
             <div class="abc888-div1" >
-              <img :src="$store.state.user_zm.tc01" alt="图片" :style="{transform:'scale('+multiples+')'}">
+              <img :src="$store.state.user_zm.tc01"  alt="图片" :style="{transform:'scale('+multiples+')'}">
             </div>
 
             <div >
@@ -29,8 +30,8 @@
               <el-upload
                 action="#"
                 list-type="picture-card"
-                :auto-upload="false">
-                <i slot="default" class="el-icon-plus" >上传图片</i>
+                :auto-upload="false" >
+                <i slot="default"  >上传图片</i>
                 <div slot="file" slot-scope="{file}" >
                   <img
                     class="el-upload-list__item-thumbnail"
@@ -65,7 +66,8 @@
 <!--              </el-dialog>-->
 <!--              <el-button  type="primary">提交头像</el-button>-->
 <!--              <button @click="tijianimg">提交头像</button>-->
-              <button  @click="gerenzx">去个人中心页面</button>
+
+
             </div>
         </div>
     </div>
@@ -118,27 +120,28 @@
         // },
         handlePictureCardPreview(file) {
           this.dialogImageUrl = file.url;
-          console.log(file.url+".png");
+          console.log(file.url);
 
           this.$store.state.user_zm.tc01=file.url
-          console.log(this.$store.state.user_zm.tc01)
+          // console.log(this.$store.state.user_zm.tc01)
 
           this.src=this.$store.state.user_zm.tc01;
-          console.log(this.src)
+          // console.log(this.src)
           this.$store.commit("gaisrc",this.src);
+
+          // //存储图片
+          // var storage88 = window.sessionStorage;
+          // storage88.setItem('src', this.src);
+          // var storage=window.localStorage;
+          // storage.setItem('src', this.src);
+
           this.dialogVisible = false;
         },
         // handleDownload(file) {
         //   console.log(file);
         // }
-        tijianimg(){
-          this.$router.push("/show_zm");
 
-          // this.$router.push({path: "/show_zm", query: {tc01:this.$store.state.user_zm.tc01}});
-        },
-        gerenzx(){
-          this.$router.push("/grzx_zm");
-        },
+
 
       },
 
@@ -186,5 +189,7 @@
     margin-top: 10px;
     margin-left: 136px;
   }
+
+
 
 </style>
