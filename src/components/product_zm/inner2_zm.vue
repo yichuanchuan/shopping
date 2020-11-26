@@ -1,6 +1,6 @@
 <template>
   <div class="in2_zm">
-    <h1>可领优惠券列表</h1>
+    <h1>优惠券列表</h1>
 <!--    {{// myList}}-->
     <router-link tag="h1" :to="{path:'inner3_zm', query:{ylList:ylList}}" >已领优惠券数量 {{this.$store.state.user_zm.count}} 张</router-link>
     <h1>优惠券金额{{this.$store.state.user_zm.jian}}</h1>

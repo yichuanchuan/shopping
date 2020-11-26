@@ -18,22 +18,22 @@
         <div class="box1-r-4">
           <router-link tag="p" to="inner3_zm" class="box1-r-p1" >{{this.$store.state.user_zm.count}}</router-link>
           <!--          <p class="box1-r-p2">优惠券</p>-->
-          <router-link to="/inner2_zm" tag="button" class="box1-r-btn" >优惠券</router-link>
+          <router-link to="/inner2_zm" tag="button" class="box1-r-btn el-icon-discount" >优惠券</router-link>
         </div>
         <div class="box1-r-4">
           <p class="box1-r-p1" >5</p>
 <!--          <p class="box1-r-p2">收藏夹</p>-->
-          <router-link to="/shopping" tag="button" class="box1-r-btn" >购物车</router-link>
+          <router-link to="/shopping" tag="button" class="box1-r-btn el-icon-shopping-cart-full" >购物车</router-link>
         </div>
         <div class="box1-r-4">
           <p class="box1-r-p1" >10</p>
 <!--          <p class="box1-r-p2">关注店铺</p>-->
-          <router-link to="/myList" tag="button" class="box1-r-btn" >收藏商品</router-link>
+          <router-link to="/myList" tag="button" class="box1-r-btn el-icon-s-claim" >收藏商品</router-link>
         </div>
         <div class="box1-r-4">
           <p class="box1-r-p1" >1</p>
 <!--          <p class="box1-r-p2">足迹</p>-->
-          <router-link to="myList" tag="button" class="box1-r-btn">收藏店铺</router-link>
+          <router-link to="myList" tag="button" class="box1-r-btn el-icon-star-off">收藏店铺</router-link>
         </div>
       </div>
     </div>
@@ -46,7 +46,6 @@
 <!--          <router-link to="/HelloWorld" active-class="myactive" tag="li">HelloWorld</router-link>-->
           <span class="title_zm1">我的订单</span>
           <span class="title_zm2">
-
             <router-link to="/Order" tag="a">全部订单<i class="el-icon-caret-right"></i></router-link>
 
         </span>
@@ -88,126 +87,71 @@
             <a>已完成</a>
           </span>
         </div>
-        <div class="bos2-daifk_zm clear">
-          <div>
-            <img src="https://res.vmallres.com/pimages///product/6972453166975/100_100_A0F7A47E35110F7E695A3232D32344F0BBBF144D04917AAEmp.png">
-          </div>
-          <div>
-            <img src="https://res.vmallres.com/pimages///product/6901443288229/100_100_2E27B7DF01ACE78E64E0BD8D14A2172A4FD97705AD4517C2mp.png">
-          </div>
-          <div>共4件商品</div>
-          <div class="box2-dindan-div1-a">待付款</div>
-          <div>2299.00</div>
-          <span>
-            <button>去支付</button>
-            <p></p>
-            <p class="bos2-daifk-p2">订单详情</p>
-          </span>
-        </div>
-        <div class="bos2-daifk_zm clear">
-          <div>
-            <img src="https://res.vmallres.com/pimages///product/6972453167842/100_100_A6CB87E309E01302E19000B9D7C64DA7CD964BD814268A2Bmp.png">
-          </div>
-          <div>
-<!--            <img src="https://res.vmallres.com/pimages///product/6901443415830/100_100_3FEB0BF538D41FDC1B5E8EC86F1732B42C21B76E453EF914mp.png">-->
-          </div>
-          <div>共4件商品</div>
-          <div class="box2-dindan-div1-a">待付款</div>
-          <div>2199.00</div>
-          <span>
-            <button>去支付</button>
-            <p></p>
-            <p class="bos2-daifk-p2">订单详情</p>
-          </span>
-        </div>
-        <div class="bos2-daifk_zm clear">
-          <div>
-            <img src="https://res.vmallres.com/pimages///product/6901443415830/100_100_3FEB0BF538D41FDC1B5E8EC86F1732B42C21B76E453EF914mp.png">
-          </div>
-          <div>
-<!--            <img src="https://res.vmallres.com/pimages///product/6901443288229/100_100_2E27B7DF01ACE78E64E0BD8D14A2172A4FD97705AD4517C2mp.png">-->
-          </div>
-          <div>共4件商品</div>
-          <div class="box2-dindan-div1-a">待付款</div>
-          <div>5299.00</div>
-          <span>
-            <button>去支付</button>
-            <p></p>
-            <p class="bos2-daifk-p2">订单详情</p>
-          </span>
-        </div>
-<!--        最近浏览-->
-        <div class="box2-zjln_zm">
-            <p class="box2-zjln-p1">最近浏览</p>
-            <div class="box2-zjln-div clear">
-                <div class="box2-div1_zm">
-                    <img src="https://res.vmallres.com/pimages//product/GB3201070001701/428_428_1537522318471mp.png">
-                    <p class="box2-zjln-p2">华为音乐会员卡</p>
-                    <p class="box2-zjln-p3">￥9.9</p>
-                </div>
-                <div class="box2-div1_zm">
-                    <img src="https://res.vmallres.com/pimages//product/6901443366811/428_428_1A94F32EAC64912C1749ACBD3DD14CCB199B7D281392108Fmp.png">
-                    <p class="box2-zjln-p2">荣耀笔记本</p>
-                    <p class="box2-zjln-p3">￥3599</p>
-                </div>
-                <div class="box2-div1_zm">
-                    <img src="https://res.vmallres.com/pimages//product/6972453162526/428_428_7E78427DAD528145F81C899480925B4A833C3793651A5B90mp.png">
-                    <p class="box2-zjln-p2">荣耀手机</p>
-                    <p class="box2-zjln-p3">￥2899</p>
-                 </div>
-              <div class="box2-div1_zm">
-                    <img src="https://res.vmallres.com/pimages//product/6901443405527/428_428_772464C5DDD7E81F2856E4BBF9185B7AF208606FA7888348mp.png">
-                    <p class="box2-zjln-p2">华为mata</p>
-                    <p class="box2-zjln-p3">￥3999</p>
-              </div>
-              <div class="box2-div1_zm">
-                <img src="https://res.vmallres.com/pimages//product/GB3201070001701/428_428_1537522318471mp.png">
-                <p class="box2-zjln-p2">华为音乐会员卡</p>
-                <p class="box2-zjln-p3">￥9.9</p>
-              </div>
-              <div class="box2-div1_zm">
-                <img src="https://res.vmallres.com/pimages//product/GB3201070001701/428_428_1537522318471mp.png">
-                <p class="box2-zjln-p2">华为音乐会员卡</p>
-                <p class="box2-zjln-p3">￥9.9</p>
-              </div>
-            </div>
+        <div id="myList" class="myList">
+          <ul class="clear">
+            <li v-for="(item, index) in list" :key="index">
+              <router-link :to="{path:'detail',query: {cinformation_id:item.cinformation_id}}">
+                <img :src="item.cinformation_homepicture" alt />
+                <span class="span-1">{{item.cinformation_name}}</span>
+<!--                <p>-->
+                  <span class="span-2">{{item.cspecifications_promotionprice}}元</span>
+                  <span
+                    v-show="item.cspecifications_commodityprice"
+                    class="del span-3"
+                  >{{item.cspecifications_commodityprice}}元</span>
+<!--                </p>-->
+                <button>去购买</button>
+              </router-link>
+            </li>
+          </ul>
         </div>
 <!--        为你推荐-->
         <div class="box2-wntj_zm">
             <p class="box2-zjln-p1">为你推荐</p>
-            <img src="https://res.vmallres.com/pimages//pages/dynamicMsg/33497146150614179433.png" alt="图片">
-            <img src="https://res.vmallres.com/pimages//pages/dynamicMsg/25540246150614204552.jpg" alt="图片">
+<!--            <img src="https://res.vmallres.com/pimages//pages/dynamicMsg/33497146150614179433.png" alt="图片">-->
+<!--            <img src="https://res.vmallres.com/pimages//pages/dynamicMsg/25540246150614204552.jpg" alt="图片">-->
             <img src="https://res.vmallres.com/pimages//pages/dynamicMsg/24581246150614218542.jpg" alt="图片">
         </div>
       </div>
 <!--      中部右-->
       <div class="box3">
-<!--        以旧换新-->
-        <img src="https://res.vmallres.com/pimages//sale/2019-03/mz5DM9gBNMu8TbtnVO4W.png" class="yjhx_zm">
+
+        <router-link to="myList"  tag="img"  :src="tc02" class="yjhx_zm"></router-link>
+
 <!--        我的服务-->
         <div class="fu_zm clear" >
           <p id="fu-p1-_zm">我的服务</p>
           <div>
-            <img src="https://res.vmallres.com/pimages//pages/personal/EdqwkeSVDX9w3FKPzSK2.png">
-            <i>以旧换新</i>
+            <a href="tencent://message/?Menu=yes&uin=1274816963&Site=80fans&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a545b1714f9d45">
+              <img src="https://res.vmallres.com/pimages//pages/personal/EdqwkeSVDX9w3FKPzSK2.png" width="80"/>
+              <i>订单投诉</i>
+            </a>
+<!--            <img src="https://res.vmallres.com/pimages//pages/personal/EdqwkeSVDX9w3FKPzSK2.png">-->
+<!--            <i>订单投诉</i>-->
           </div>
           <div>
-            <img src="https://res.vmallres.com/pimages//pages/personal/P1cNbD7mbD6wMLXlk0xj.png">
-            <i>补购保障</i>
+            <a href="tencent://message/?Menu=yes&uin=1274816963&Site=80fans&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a545b1714f9d45">
+              <img src="https://res.vmallres.com/pimages//pages/personal/P1cNbD7mbD6wMLXlk0xj.png" width="80"/>
+              <i>品质投诉</i>
+            </a>
+<!--            <img src="https://res.vmallres.com/pimages//pages/personal/P1cNbD7mbD6wMLXlk0xj.png">-->
+<!--            <i>品质投诉</i>-->
           </div>
           <div>
-            <img src="https://res.vmallres.com/pimages//pages/personal/RZtjrUWV85tNwaoYsSpm.png">
-            <i>联系客服</i>
+            <a href="tencent://message/?Menu=yes&uin=1274816963&Site=80fans&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a545b1714f9d45">
+              <img src="https://res.vmallres.com/pimages//pages/personal/RZtjrUWV85tNwaoYsSpm.png" width="80"/>
+              <i>联系客服</i>
+            </a>
           </div>
+
         </div>
 <!--        新人见面礼-->
-        <img src="https://res.vmallres.com/pimages//sale/2019-03/VUTCWxITsS0jb0wNXhJD.png" class="yjhx_zm">
+        <router-link to="inner2_zm"  tag="img"  :src="tc03" class="yjhx_zm"></router-link>
 <!--        华为移动生活-->
         <div class="box3-ydsh_zm">
-          <p>华为移动生活</p>
-            <img src="https://res.vmallres.com/pimages//sale/2019-03/vEp2ksvV2h9hMP3KUrrw.png" alt="图片">
-          <img src="https://res.vmallres.com/pimages//sale/2019-03/c61UkfLNFMM6XdeYDjLX.png" alt="图片">
-          <img src="https://res.vmallres.com/pimages//sale/2019-03/dMqovywLqjDjAfUFbqr1.png" alt="图片">
+          <p>优品移动生活</p>
+          <img :src="tc05" alt="图片">
+<!--          <img src="https://res.vmallres.com/pimages//sale/2019-03/dMqovywLqjDjAfUFbqr1.png" alt="图片">-->
         </div>
       </div>
     </div>
@@ -217,14 +161,19 @@
 </template>
 
 <script>
-  import show_zm from "./zhzx/show_zm";
-  import inner2_zm from "./zhzx/inner2_zm";
+  import show_zm from "./show_zm";
+  import inner2_zm from "./inner2_zm";
   import {mapActions,mapGetters} from 'vuex';
     export default {
         name: "grzx_zm",
         data() {
             return {
-                username: ""
+                username: "",
+                tc02:require("../../../static/images/20201126111946.png"),
+                tc03:require("../../../static/images/20201126141654.png"),
+                tc05:require("../../../static/images/20201126152912.png"),
+                list: [
+                ]
             }
         },
       components:{
@@ -241,11 +190,26 @@
             this.$router.push("/div1")
           }
         },
-        mounted() {
+        mounted(){
             this.username = this.$route.query.name;
-          // this.phone = this.$route.query.phone;
-          // console.log(this.phone);
         },
+      created() {
+        this.$axios({
+          method: 'post',
+          url: 'http://139.196.200.142:80/cityshop-api-shop/cinformation/findPicture',
+          params: {
+            page: 0,
+            limit: 5
+          }
+        })
+          .then(res => {
+            console.log(res.data)
+            this.list = res.data.data.list
+            for (let i = 0; i < this.list.length; i++) {
+              this.list[i].cinformation_homepicture = require('@/assets/img/00' + (i + 1) + '.jpg')
+            }
+          })
+      },
       computed:{
           ...mapGetters(['show'])
       }
@@ -260,6 +224,112 @@
   }
   .clear::after {
     clear: both;
+  }
+  .myList {
+    /*width: 622px;*/
+  }
+  .myList ul li {
+    list-style-type: none;
+    float: left;
+    width: 100%px;
+    /*height: 170px;*/
+    /*height: 280px;*/
+    padding: 10px 0;
+    margin: 0 0 14.5px 13.7px;
+    background-color: white;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    position: relative;
+  }
+  a {
+    text-decoration: none;
+  }
+  .myList ul li:hover {
+    z-index: 2;
+    -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    -webkit-transform: translate3d(0, -2px, 0);
+    transform: translate3d(0, -2px, 0);
+  }
+  .myList ul li img {
+    float: left;
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+  }
+  .span-1{
+    width: 150px;
+
+  }
+  .myList ul li span{
+    padding-top: 25px;
+    float: left;
+    display: block;
+    /*height: 150px;*/
+    margin: 10px 20px;
+    /*padding-top: 65px;*/
+  }
+  .myList ul li button {
+    width: 50px;
+    padding: 5px;
+    margin: 10px;
+    color: #fff;
+    background: #cf0a2c;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-top: 30px;
+  }
+  .myList ul li h3 {
+    margin: 5px 10px;
+    height: 18px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #b0b0b0;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .myList ul li p {
+    margin: 10px 10px 10px;
+    text-align: center;
+    color: #ff6700;
+  }
+  .myList ul li p .del {
+    margin-left: 0.5em;
+    color: #b0b0b0;
+    text-decoration: line-through;
+  }
+  .myList #more {
+    text-align: center;
+    line-height: 150px;
+  }
+
+  .myList #more a {
+    font-size: 18px;
+    color: #333;
+  }
+  .myList #more a:hover {
+    color: #ff6700;
+  }
+  .myList ul li .delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: none;
+  }
+  .myList ul li:hover .delete {
+    display: block
+  }
+  .myList ul li .delete:hover {
+    color: #ff6700;
+  }
+  a{
+    text-decoration:none;
+    color: #3a3a3a;
   }
   .box1{
     width: 1002px;
@@ -443,7 +513,7 @@
   .box2-dindan-div1-1{
     position: absolute;
     top: -16px;
-    left: -16px;
+    left: -22px;
   }
   .em1{
     position: absolute;
@@ -464,22 +534,22 @@
   .box2-dindan-div1-2{
     position: absolute;
     top: -16px;
-    left: -66px;
+    left: -72px;
   }
   .box2-dindan-div1-3{
     position: absolute;
     top: -16px;
-    left: -116px;
+    left: -122px;
   }
   .box2-dindan-div1-4{
     position: absolute;
     top: -16px;
-    left: -166px;
+    left: -172px;
   }
   .box2-dindan-div1-5{
     position: absolute;
     top: -16px;
-    left: -216px;
+    left: -222px;
   }
 
   .bos2-daifk_zm{
@@ -592,6 +662,7 @@
   }
   .yjhx_zm{
     width: 350px;
+    border-radius: 15px;
     cursor: pointer;
   }
   .fu_zm{
@@ -640,7 +711,7 @@
   }
   .box3-ydsh_zm img{
     width: 312px;
-    height: 116px;
+    height: 200px;
     cursor: pointer;
   }
 
