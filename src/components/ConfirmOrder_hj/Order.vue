@@ -43,17 +43,17 @@
       <!--修改收货地址的弹框-->
       <div>
         <el-dialog title="-修改地址-" :visible.sync="dialogFormVisible1" class="title">
-          <el-form :model="form1">
-            <el-form-item label="收货人：" :label-width="formLabelWidth">
+          <el-form :model="form1" ref="addAddressRef" :rules="addAddressRules">
+            <el-form-item label="收货人：" prop="name" :label-width="formLabelWidth">
               <el-input v-model="form1.name" autocomplete="off"></el-input>
             </el-form-item>
-            <el-form-item label="手机号码：" :label-width="formLabelWidth">
+            <el-form-item label="手机号码：" prop="tel" :label-width="formLabelWidth">
               <el-input v-model="form1.tel" placeholder="请输入11位手机号码"></el-input>
             </el-form-item>
 <!--            <el-form-item label="备选号码：" :label-width="formLabelWidth">-->
 <!--              <el-input v-model="form1.tel" placeholder="固定电话或其他手机号码"></el-input>-->
 <!--            </el-form-item>-->
-            <el-form-item label="收货地址：" :label-width="formLabelWidth">
+            <el-form-item label="收货地址：" prop="address" :label-width="formLabelWidth">
               <el-input v-model="form1.address" placeholder="请输入详细的收货地址"></el-input>
             </el-form-item>
           </el-form>
@@ -136,6 +136,13 @@
           tel:'',
           address:''
         },
+        //点击保存按钮存入输入的地址信息
+        form2: [
+          { name: 'admin',
+            tel:12345678912,
+            address: '四川省成都市武侯区云华路333号国信安一号门'
+          }
+        ],
         //添加收货地址的表单验证规则对象
         addAddressRules:{
            //验证收货人姓名是否合法
@@ -152,18 +159,15 @@
             {required:true,message:"收货地址不能为空", trigger:"blur"}
           ],
         },
+
+
+        //点击修改按钮后，弹框中表单初始数据为空
         form1:{
           name: '',
           tel:'',
           address:''
         },
-        //点击保存按钮存入输入的地址信息
-        form2: [
-          { name: 'admin',
-            tel:12345678912,
-            address: '四川省成都市武侯区云华路333号国信安一号门'
-          }
-        ],
+        //提交订单按钮下方初始地址信息为空
         form3: {
 
         },
@@ -195,10 +199,6 @@
         this.current = null;
       },
 
-      //删除地址
-      delAddress(obj){
-        this.form2.splice(obj,1)
-      },
       //添加地址
       saveAddress(){
         this.dialogFormVisible=false;
@@ -207,12 +207,17 @@
         // this.form2.address = this.form.address
         let s = {name:this.form.name,tel: this.form.tel , address: this.form.address}
         this.form2.push(s)
+        //添加成功后清空表单的数据
         this.form.name=""
         this.form.tel=""
         this.form.address=""
         //console.log(this);
         //点击保存按钮清空表单验证规则
         this.$refs.addAddressRef.resetFields();
+      },
+      //删除地址
+      delAddress(obj){
+        this.form2.splice(obj,1);
       },
       //修改地址
       bcupdataAddress(){
@@ -228,15 +233,18 @@
         this.form1.name = ''
         this.form1.tel = ''
         this.form1.address = ''
+        //点击按钮重置表单校验规则
+        this.$refs.addAddressRef.resetFields();
       },
       updateAddress(obj){
         this.dialogFormVisible1=true;
         this.myIndex = obj
       },
+      //点击地址框选中并在提交订单按钮下方显示地址信息
       changeAddress(obj){
         this.form3 = this.form2[obj]
-
       },
+      //调用提交订单接口
       submitOrder (){
         //this.$axios.post("http://139.196.200.142:8769/cart/deleteAllCart?uid=1")
         this.$axios.post("http://139.196.200.142:8769/cart/deleteAllCart?uid=1")
