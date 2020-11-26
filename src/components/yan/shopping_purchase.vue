@@ -17,7 +17,7 @@
     <div class="zhongjia">
       <p>总价:{{totalPrice}}</p>
       <div>已选择
-        <span>{{totalNum}}</span>件商品，优惠：<span>￥300元</span></div>
+        <span>{{getNum}}</span>件商品，优惠：<span>￥300元</span></div>
     </div>
   </div>
 </template>
@@ -47,7 +47,7 @@
       }
     },
     computed:{
-      ...mapGetters(['totalNum','totalPrice','cartProducts'])
+      ...mapGetters(['getNum','totalPrice','cartProducts'])
     }
   }
 </script>

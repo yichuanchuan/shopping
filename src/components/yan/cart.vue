@@ -23,7 +23,7 @@
         align="center">
         <!--计数器-->
         <template slot-scope="scope">
-          <el-input-number v-model="scope.row.num"  :min="1" :max="10" label="描述文字"></el-input-number>
+          <el-input-number v-model="scope.row.num"  :min="1" label="描述文字"></el-input-number>
         </template>
 
       </el-table-column>

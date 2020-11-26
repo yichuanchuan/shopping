@@ -42,7 +42,6 @@
         }
       })
       .then(res=> {
-        console.log(res.data)
         this.list = res.data.data.list
         for( let i = 0 ; i < this.list.length ; i++ ){
           this.list[i].cinformation_homepicture = require('@/assets/img/00'+(i+1)+'.jpg')

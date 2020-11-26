@@ -41,18 +41,22 @@ const getters={
 
 
   //获取总数和总价在shopping_puchase中用
-  totalNum:(state,getters)=>{
-    let totalnum=0;
-    // console.log("1111111111111111");
-    // console.log(getters);
-    // forEach(): 用于调用数组的每个元素，并将元素传递给回调函数
-    getters.cartProducts.forEach(item=>{//[{},{},{}]
-      totalnum+=item.num;
-    });
-    return totalnum;
-
-
-  },
+  // totalNum:(state,getters)=>{
+  //   let totalnum=0;
+  //   // console.log("1111111111111111");
+  //   // console.log(getters);
+  //   // forEach(): 用于调用数组的每个元素，并将元素传递给回调函数
+  //   getters.cartProducts.forEach(item=>{//[{},{},{}]
+  //     totalnum+=item.num;
+  //     console.log(item)
+  //     console.log(totalnum)
+  //   });
+  //   console.log("222")
+  //   console.log(totalnum)
+  //   return totalnum;
+  //
+  //
+  // },
   totalPrice:(state,getters)=>{
     let totalprice=0;
     getters.cartProducts.forEach(item=>{
@@ -62,12 +66,16 @@ const getters={
   },
   getNum (state) {
     // 购物车商品总数量
-    let totalNum = 0;
+    let allNum1 = 0;
     for (let i = 0; i < state.added.length; i++) {
-      const temp = state.added[i];
-      totalNum += temp.num;
+      let temp22 = state.added[i];
+      console.log(allNum1)
+      console.log(temp22)
+      console.log(temp22.num)
+      allNum1 += temp22.num;
+      console.log(allNum1)
     }
-    return totalNum;
+    return allNum1;
   },
 
 };
@@ -101,7 +109,7 @@ const mutations={
     // 添加购物车
     // 用于在商品详情页点击添加购物车,后台添加成功后，更新vuex状态
     state.added=data.data;
-    console.log(data.data);
+    console.log(state.added)
   },
   //删除指定商品：state.购物车数据.splice()
   //清空购物车：sate.购物车数据=[]

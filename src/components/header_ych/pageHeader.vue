@@ -33,7 +33,7 @@
             </div>
           </router-link>
           <router-link to="/shopping" tag="li" >
-            <div @click="addShoppingCart">
+            <div>
               <i class="el-icon-shopping-cart-2"></i> 购物车({{getNum}})
             </div>
             <div class="mycart">
@@ -129,16 +129,6 @@
         },
         methods: {
           ...mapActions(['consumerId','unshiftShoppingCart']),
-          addShoppingCart(){
-            console.log(this.getConsumerId[0]);
-
-            this.$axios.post('http://139.196.200.142:8769/cart/cartList?consumerId='+this.getConsumerId[0])
-              .then(res => {
-                console.log(res.data);
-                this.unshiftShoppingCart(res.data);
-              })
-          }
-          ,
           changelogin() {
             this.$store.dispatch('confirm')
           },
@@ -155,13 +145,17 @@
             this.$axios.post('http://139.196.200.142:8769/consumer/login?phone=' + this.form.username + '&password=' + this.form.password,)
               .then(res => {
                 if(res.data.code == 200) {
-                  console.log("登录成功")
                   // ...mapActions(['loginState'])
                   this.$store.dispatch('loginState')
                   this.$store.dispatch('loginBox')
                   this.showName = true;
                   this.userInfo.name = res.data.consumerName;
                   this.consumerId(res.data.consumerId);
+
+                  this.$axios.post('http://139.196.200.142:8769/cart/cartList?consumerId='+this.getConsumerId[0])
+                    .then(res => {
+                      this.unshiftShoppingCart(res.data);
+                    })
                 }else {
                   alert("请输入正确账号或密码")
                 }

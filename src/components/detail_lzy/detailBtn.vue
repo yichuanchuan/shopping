@@ -87,7 +87,7 @@
             // 购物车计数器
             let shopCart = document.getElementsByTagName('sup')[0];
             this.num1 += this.num
-            shopCart.innerHTML = this.num1.toString();
+            shopCart.innerHTML = (this.getNum+1).toString();
             shopCart.style.display = 'inline-block';
             this.$message({
               message: '加入购物车成功',
@@ -103,6 +103,10 @@
               console.log(res.data)
             });
 
+            this.$axios.post('http://139.196.200.142:8769/cart/cartList?consumerId='+this.getConsumerId[0])
+              .then(res => {
+                this.unshiftShoppingCart(res.data);
+              })
           }
           }
 
@@ -114,12 +118,15 @@
       },
       computed: {
         ...mapGetters(['getConsumerId']),
-        ...mapGetters(['loginState'])
+        ...mapGetters(['loginState','getNum'])
       },
-      created() {
-        console.log(this.shopList)
+      mounted() {
+          if(this.getConsumerId[0] != undefined){
+            let shopCart = document.getElementsByTagName('sup')[0];
+            shopCart.innerHTML = this.getNum.toString();
+            shopCart.style.display = 'inline-block';
+          }
       }
-
     }
 </script>
 <style>
