@@ -34,7 +34,7 @@
         </div>
         <div class="house-box" @click="shopCart">
           <router-link to="/shopping" tag="span">
-            <el-badge :value='0' class="item">
+            <el-badge :value='0' :max='99' class="item">
               <div class="el-icon-shopping-cart-2"></div>
             </el-badge>
             <span class="cart-2">购物车</span>
@@ -87,12 +87,13 @@
             // 购物车计数器
             let shopCart = document.getElementsByTagName('sup')[0];
             this.num1 += this.num
-            shopCart.innerHTML = (this.getNum+1).toString();
+            shopCart.innerHTML = (this.num1 + this.getNum).toString();
             shopCart.style.display = 'inline-block';
             this.$message({
               message: '加入购物车成功',
               type: 'success'
             });
+            //向数据库传数据
             let useName = this.getConsumerId[0].toString();
             let shopNum = this.shopList.cbinformation_id.toString();
             this.$axios.post('http://139.196.200.142:8769/cart/addCart',{
@@ -103,10 +104,6 @@
               console.log(res.data)
             });
 
-            this.$axios.post('http://139.196.200.142:8769/cart/cartList?consumerId='+this.getConsumerId[0])
-              .then(res => {
-                this.unshiftShoppingCart(res.data);
-              })
           }
           }
 
@@ -118,15 +115,23 @@
       },
       computed: {
         ...mapGetters(['getConsumerId']),
-        ...mapGetters(['loginState','getNum'])
+        ...mapGetters(['loginState']),
+        ...mapGetters(['getNum']),
+
+      },
+      created() {
+
       },
       mounted() {
-          if(this.getConsumerId[0] != undefined){
-            let shopCart = document.getElementsByTagName('sup')[0];
-            shopCart.innerHTML = this.getNum.toString();
-            shopCart.style.display = 'inline-block';
-          }
+        //获取账号数据库购物总数
+        if(this.getConsumerId[0] != undefined){
+          let shopCart = document.getElementsByTagName('sup')[0];
+          shopCart.innerHTML = this.getNum.toString();
+          shopCart.style.display = 'inline-block';
+        }
       }
+
+
     }
 </script>
 <style>

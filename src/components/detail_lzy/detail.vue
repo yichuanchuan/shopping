@@ -46,7 +46,7 @@
           console.log(response.data.data[0])
           let i = this.$route.query.cinformation_id
           this.shopList.cinformation_detailspicture = require('@/assets/img/00'+i+'.jpg')
-          console.log(this)
+          // console.log(this)
         })
       }
     }
